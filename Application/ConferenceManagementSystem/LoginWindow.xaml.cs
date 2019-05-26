@@ -30,7 +30,7 @@ namespace ConferenceManagementSystem
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow regWin = new RegisterWindow();
+            RegisterWindow regWin = new RegisterWindow(controller);
             regWin.Show();
         }
 
@@ -43,7 +43,7 @@ namespace ConferenceManagementSystem
             try
             {
                 User user = controller.LogIN(username, passwd);
-                UserMainWindow userMainwWin = new UserMainWindow();
+                UserMainWindow userMainwWin = new UserMainWindow(controller, user);
                 userMainwWin.Show();
                 this.Hide();
             }

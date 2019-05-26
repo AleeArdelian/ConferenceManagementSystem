@@ -22,8 +22,9 @@ namespace ConferenceManagementSystem
     {
         private CMSController controller = new CMSController();
 
-        public RegisterWindow()
+        public RegisterWindow(CMSController controller)
         {
+            this.controller = controller;
             InitializeComponent();
         }
 
@@ -65,6 +66,7 @@ namespace ConferenceManagementSystem
                     MessageBox.Show(ex.Message);
                 }
             }
+            this.Close();
         }
 
         private void LoginAsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
