@@ -43,6 +43,7 @@ namespace ConferenceManagementSystem
             }
             if (loginAsComboBox.Text == "Author")
             {
+                throw new NotImplementedException();
             }
             if (loginAsComboBox.Text == "PC Member")
             {
