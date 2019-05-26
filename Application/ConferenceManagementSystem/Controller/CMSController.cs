@@ -83,5 +83,26 @@ namespace ConferenceManagementSystem.Controller
                 }
             }
         }
+
+        public void registerPCMember(string username, string passwd, string fname, string lname, string email, string affiliation, string website)
+        {
+            List<String> res;
+            List<String> res1;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                res = db.Query<String>("SELECT FirstName FROM Users WHERE Username='" + username + "'").ToList();
+                res1 = db.Query<String>("SELECT FirstName FROM Users WHERE email='" + email + "'").ToList();
+                if (res.Capacity > 0 || res1.Capacity > 0)
+                    throw new Exception("Username/Email already in use");
+                else
+                {
+                    String query = "INSERT INTO Users(FirstName,LastName,Username,Passwd,email,RoleID) values('" + fname + "','" + lname + "','" + username + "','" + passwd + "','" + email + "',3)";
+                    db.Execute(query);
+                    User user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + passwd + "'");
+                    String query1 = "INSERT INTO PCMembers(ID,Affiliation,website,isReviewer) values(" + user.ID + ",'" + affiliation + "','"+website+"',0)";
+                    db.Execute(query1);
+                }
+            }
+        }
     }
 }
