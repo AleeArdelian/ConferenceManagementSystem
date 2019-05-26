@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConferenceManagementSystem"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="350" Background="#FF222842" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
+        Title="Login" Height="450" Width="350" Background="#FF142D4C" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
     <StackPanel Margin="35,40" HorizontalAlignment="Center">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,6">
             <Label Content="ConfMS" Foreground="White" FontSize="68" FontWeight="Bold" FontFamily="Constantia" Height="75" Margin="0" Width="274" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
@@ -16,7 +16,7 @@
         <Label Content="Password:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" FontWeight="Bold" FontSize="13                "/>
         <PasswordBox x:Name="passwordBox" Height="23" Width="120" Margin="0,0,0,30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <StackPanel Height="25" Width="158" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="loginButton" Content="Login" Margin="5,0" Width="70" Click="LoginButton_Click"/>
+            <Button x:Name="loginButton" Content="Login" Margin="5,0,5,-0.2" Width="70" Click="LoginButton_Click" Height="25" VerticalAlignment="Top"/>
             <Button x:Name="registerButton" Content="Register" Margin="5,0" Width="70" Click="RegisterButton_Click"/>
         </StackPanel>
     </StackPanel>

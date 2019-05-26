@@ -23,5 +23,15 @@ namespace ConferenceManagementSystem
         {
             InitializeComponent();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

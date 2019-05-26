@@ -36,7 +36,7 @@ namespace ConferenceManagementSystem
             //    MessageBox.Show("Invalid username or password!", "Login");
             UserMainWindow userMainwWin = new UserMainWindow();
             userMainwWin.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
