@@ -43,7 +43,15 @@ namespace ConferenceManagementSystem
             }
             if (loginAsComboBox.Text == "Author")
             {
-                throw new NotImplementedException();
+                try
+                {
+                    controller.registerAuthor(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text);
+                    MessageBox.Show("Register succesfull!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             if (loginAsComboBox.Text == "PC Member")
             {
