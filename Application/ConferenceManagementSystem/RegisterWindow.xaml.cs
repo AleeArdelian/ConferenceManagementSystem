@@ -55,6 +55,7 @@ namespace ConferenceManagementSystem
             }
             if (loginAsComboBox.Text == "PC Member")
             {
+                throw new NotImplementedException();
             }
         }
 
