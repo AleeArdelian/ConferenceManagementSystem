@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConferenceManagementSystem"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="350" Background="#FF222842" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
+        Title="Login" Height="450" Width="350" Background="#FF142D4C" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
     <StackPanel Margin="35,40" HorizontalAlignment="Center">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,6">
             <Label Content="ConfMS" Foreground="White" FontSize="68" FontWeight="Bold" FontFamily="Constantia" Height="75" Margin="0" Width="274" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>

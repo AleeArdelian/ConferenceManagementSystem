@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConferenceManagementSystem"
         mc:Ignorable="d"
-        Title="Register" Height="450" Width="350" Background="#FF222842" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
+        Title="Register" Height="450" Width="350" Background="#FF142D4C" WindowStartupLocation="CenterScreen" MinWidth="350" MinHeight="450" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="350" MaxHeight="450">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="36,16,33,323" Height="81" Width="275">
             <Label Content="ConfMS" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Constantia" Height="52" Margin="1,0,0.2,0" Width="274" VerticalAlignment="Center" Padding="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
