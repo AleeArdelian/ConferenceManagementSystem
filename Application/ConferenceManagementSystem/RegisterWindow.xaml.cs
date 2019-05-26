@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConferenceManagementSystem.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        private CMSController controller = new CMSController();
+
         public RegisterWindow()
         {
             InitializeComponent();
@@ -26,7 +29,24 @@ namespace ConferenceManagementSystem
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (loginAsComboBox.Text == "Listener")
+            {
+                try
+                {
+                    controller.registerListener(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text);
+                    MessageBox.Show("Register succesfull!");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            if (loginAsComboBox.Text == "Author")
+            {
+            }
+            if (loginAsComboBox.Text == "PC Member")
+            {
+            }
         }
 
         private void LoginAsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

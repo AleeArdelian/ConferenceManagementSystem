@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ConferenceManagementSystem.Entities
 {
-    class User
+    public class User
     {
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private string Username { get; set; }
-        private string Passwd { get; set; }
-        private string email { get; set; }
-        private int RoleID { get; set; }
-
-
+        public int ID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public string Passwd { get; set; }
+        public string email { get; set; }
+        public int RoleID { get; set; }
+        
 
     }
 }

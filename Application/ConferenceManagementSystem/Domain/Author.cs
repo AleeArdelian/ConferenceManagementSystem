@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConferenceManagementSystem.Entities
 {
-    class Author : User
+    public class Author : User
     {
-        private string Affiliation { get; set; }
+        public string Affiliation { get; set; }
     }
 }

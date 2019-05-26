@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConferenceManagementSystem.Entities
 {
-    class PCMember : User
+    public class PCMember : User
     {
-        private string Affiliation { get; set; }
-        private string website { get; set; }
-        private bool isReviewer { get; set; }
+        public string Affiliation { get; set; }
+        public string website { get; set; }
+        public bool isReviewer { get; set; }
+        
     }
 }
