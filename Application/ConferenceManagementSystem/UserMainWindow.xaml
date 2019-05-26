@@ -15,11 +15,19 @@
             <Button x:Name="logoutButton" Content="Logout" Margin="0,10,10,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Height="55" HorizontalAlignment="Right" Width="75" Foreground="Black" Click="LogoutButton_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Margin="0,75,0,0" Width="162" Background="#FF385170">
-            <ListView HorizontalAlignment="Right" Width="162" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center">
-                <ListViewItem Content="Conferences" Margin="0"/>
-                <ListViewItem Content="Profile" Margin="0"/>
-            </ListView>
-        </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="169*"/>
+                <RowDefinition Height="176*"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.RowSpan="2" Margin="0,0,0,-0.2" Background="{x:Null}" BorderBrush="{x:Null}">
+                <ListBoxItem Content="Conferences" HorizontalContentAlignment="Center"/>
+                <ListBoxItem Content="Papers" HorizontalContentAlignment="Center"/>
+                <ListBoxItem Content="Reviews" HorizontalContentAlignment="Center"/>
+                <ListBoxItem Content="Deadlines" HorizontalContentAlignment="Center"/>
+                <ListBoxItem x:Name="profileItem" Content="Profile" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
+            </ListBox>
 
+        </Grid>
+        <Frame x:Name="contentFrame" Margin="162,75,0,0"/>
     </Grid>
 </Window>

@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ConferenceManagementSystem
 {
     /// <summary>
-    /// Interaction logic for UserMainWindow.xaml
+    /// Interaction logic for ProfilePage.xaml
     /// </summary>
-    public partial class UserMainWindow : Window
+    public partial class ProfilePage : Page
     {
-        public UserMainWindow()
+        public ProfilePage()
         {
             InitializeComponent();
-        }
-
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void ProfileItem_Selected(object sender, RoutedEventArgs e)
-        {
-            contentFrame.Content = new ProfilePage();
         }
     }
 }
