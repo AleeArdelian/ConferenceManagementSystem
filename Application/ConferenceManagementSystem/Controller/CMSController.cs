@@ -19,6 +19,24 @@ namespace ConferenceManagementSystem.Controller
             throw new NotImplementedException();
         }
 
+        public void attendConference(Conference conference, User user)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                try
+                {
+                    String query = "INSERT INTO ConferenceUsers(ConferenceID,UserID) VALUES(" + conference.ID + "," + user.ID + ")";
+                    db.Execute(query);
+                }
+                catch (SqlException)
+                {
+                    throw new Exception("you already attend this conference");
+                }
+            }
+
+
+        }
+
         public List<Conference> getConferences()
         {
             List<Conference> conferences;

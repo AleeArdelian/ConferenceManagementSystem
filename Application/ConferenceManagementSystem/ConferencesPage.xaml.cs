@@ -38,5 +38,27 @@ namespace ConferenceManagementSystem
             DataContext = this;
 
         }
+
+        private void BntAttend_Click(object sender, RoutedEventArgs e)
+        {
+            if (conferencesListView.SelectedItems.Count > 0)
+            {
+                try
+                {
+                    Conference conference = (Conference)conferencesListView.SelectedItems[0];
+                    controller.attendConference(conference, user);
+                    MessageBox.Show("Success!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No conference is selected!");
+            }
+            
+        }
     }
 }
