@@ -19,6 +19,27 @@ namespace ConferenceManagementSystem.Controller
             throw new NotImplementedException();
         }
 
+        public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID)
+        {
+            List<String> pid;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                try
+                {
+                    String query = "INSERT INTO Papers(ContentLoc,AbstractLoc,Topic,PaperName,SectionID,isAccepted) VALUES ('" + ContentLoc + "','" + AbstractLoc + "','" + Topic + "','" + PaperName + "'," + SectionID + ",0)";
+                    db.Execute(query);
+                    pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
+                    int pidd = Int32.Parse(pid[0]);
+                    String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
+                    db.Execute(query1);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
         public void updateListener(int id, string firstName, string lastName)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -85,7 +106,7 @@ namespace ConferenceManagementSystem.Controller
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
-                sections = db.Query<Section>("SELECT * FROM Sections S INNER JOIN Conferences C ON S.ConferenceID = C.ID WHERE C.ID="+conference.ID).ToList();
+                sections = db.Query<Section>("SELECT S.ID, S.SectionName, S.RoomName, S.PaperDeadline, S.ChairID, S.ConferenceID FROM Sections S INNER JOIN Conferences C ON S.ConferenceID = C.ID WHERE C.ID="+conference.ID).ToList();
                 return sections;
             }
         }

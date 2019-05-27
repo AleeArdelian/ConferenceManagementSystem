@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Section = ConferenceManagementSystem.Domain.Section;
 
 namespace ConferenceManagementSystem
 {
@@ -27,7 +28,7 @@ namespace ConferenceManagementSystem
         CMSController controller;
         User user;
         public List<Conference> conferences { get; set; }
-        public List<Domain.Section> sections { get; set; }
+        public List<Section> sections { get; set; }
 
 
         public PapersPage(CMSController controller, User user)
@@ -48,7 +49,30 @@ namespace ConferenceManagementSystem
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if (user.RoleID == 1 || user.RoleID == 4)
+            {
+                Section section = (Section)sectionsListView.SelectedItems[0];
+                try
+                {
+                    if (paperNameTextBox.Text != "" && topicTextBox.Text != "" && paperLocationTextBox.Text != "" && abstractLocationTextBox.Text != "")
+                    {
+                        controller.addPaper(paperNameTextBox.Text, topicTextBox.Text, paperLocationTextBox.Text, abstractLocationTextBox.Text, section.ID, user.ID);
+                        MessageBox.Show("Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalid paper name, topic, or locations!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You can't upload papers");
+            }
         }
     }
 }

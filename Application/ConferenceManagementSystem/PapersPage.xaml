@@ -34,7 +34,7 @@
         <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="132,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="132,258,0,0" VerticalAlignment="Top" Width="75" Height="30"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="132,258,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
 
     </Grid>
 </Page>
