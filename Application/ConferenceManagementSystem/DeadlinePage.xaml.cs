@@ -35,20 +35,26 @@ namespace ConferenceManagementSystem {
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            section = (Domain.Section)sectionListView.SelectedItems[0];
-            dateDeadline.Text = section.PaperDeadline;
+            if (sectionListView.SelectedItems.Count > 0) {
+                section = (Domain.Section)sectionListView.SelectedItems[0];
+                dateDeadline.Text = section.PaperDeadline;
+            }
         }
 
         private void submitButton_Click(object sender, RoutedEventArgs e) {
             if (section == null)
                 MessageBox.Show("Please select a section");
-            DateTime initialDate = Convert.ToDateTime(section.PaperDeadline);
-            DateTime newDate = Convert.ToDateTime(dateDeadline.Text);
-            if (initialDate.CompareTo(newDate) >= 0)
-                MessageBox.Show("New deadline must be after current deadline.");
             else {
-                controller.updateSectionDeadline(section.ID, newDate);
-                MessageBox.Show("Updated deadline");
+                DateTime initialDate = Convert.ToDateTime(section.PaperDeadline);
+                DateTime newDate = Convert.ToDateTime(dateDeadline.Text);
+                if (initialDate.CompareTo(newDate) >= 0)
+                    MessageBox.Show("New deadline must be after current deadline.");
+                else {
+                    controller.updateSectionDeadline(section.ID, newDate);
+                    MessageBox.Show("Updated deadline");
+                    sections = controller.getSections();
+                    sectionListView.ItemsSource = sections;
+                }
             }
         }
     }

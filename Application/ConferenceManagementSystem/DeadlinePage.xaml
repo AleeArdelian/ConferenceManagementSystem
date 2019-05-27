@@ -13,7 +13,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding SectionName}" Header="Name" Width="100"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding PaperDeadline}" Header="Paper Deadline" Width="120"/>
+                    <GridViewColumn x:Name="paperDeadline" DisplayMemberBinding="{Binding PaperDeadline}" Header="Paper Deadline" Width="120"/>
                     <GridViewColumn DisplayMemberBinding="{Binding RoomName}" Header="Room" Width="80"/>
                 </GridView>
             </ListView.View>
