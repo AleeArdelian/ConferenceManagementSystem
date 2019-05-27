@@ -90,6 +90,17 @@ namespace ConferenceManagementSystem.Controller
 
         }
 
+        public List<Paper> getPapers()
+        {
+            List<Paper> papers;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                papers = db.Query<Paper>("SELECT * FROM Papers").ToList();
+                return papers;
+            }
+            
+        }
+
         public List<Conference> getConferences()
         {
             List<Conference> conferences;

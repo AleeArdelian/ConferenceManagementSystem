@@ -35,6 +35,15 @@
         <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="132,258,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
+        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="436,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Topic}" Header="Topic" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

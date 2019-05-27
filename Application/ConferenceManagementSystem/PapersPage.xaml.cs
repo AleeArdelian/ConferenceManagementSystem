@@ -29,6 +29,7 @@ namespace ConferenceManagementSystem
         User user;
         public List<Conference> conferences { get; set; }
         public List<Section> sections { get; set; }
+        public List<Paper> papers { get; set; }
 
 
         public PapersPage(CMSController controller, User user)
@@ -38,6 +39,21 @@ namespace ConferenceManagementSystem
             InitializeComponent();
             conferences = this.controller.getConferences();
             DataContext = this;
+            if(user.RoleID==1 || user.RoleID == 5)
+            {
+                papersLabel.Visibility = Visibility.Hidden;
+                papersListView.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                loadPapers();
+            }
+        }
+
+        private void loadPapers()
+        {
+            papers = controller.getPapers();
+            papersListView.ItemsSource = papers;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
