@@ -80,6 +80,16 @@ namespace ConferenceManagementSystem.Controller
 
         }
 
+        public List<Section> getSectionsOfConference(Conference conference)
+        {
+            List<Section> sections;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                sections = db.Query<Section>("SELECT * FROM Sections S INNER JOIN Conferences C ON S.ConferenceID = C.ID WHERE C.ID="+conference.ID).ToList();
+                return sections;
+            }
+        }
+
         public List<Conference> getMyConferences(User user)
         {
             List<Conference> conferences;

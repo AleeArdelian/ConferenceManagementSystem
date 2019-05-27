@@ -10,7 +10,22 @@
 
     <Grid>
         <Label Content="Conferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sections" HorizontalAlignment="Left" Margin="157,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sections" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding conferences}" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="180"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Name="sectionsListView" HorizontalAlignment="Left" Height="100" Margin="225,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding sections}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding SectionName}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding RoomName}" Header="Room" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

@@ -67,6 +67,7 @@
     <Compile Include="Domain\Author.cs" />
     <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\PCMember.cs" />
+    <Compile Include="Domain\Section.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
