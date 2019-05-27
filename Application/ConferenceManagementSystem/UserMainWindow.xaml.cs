@@ -78,7 +78,7 @@ namespace ConferenceManagementSystem
                 MessageBox.Show("You don't have the right to acces this page");
             else
             {
-
+                contentFrame.Content = new DeadlinePage(controller, user);
             }
         }
     }
