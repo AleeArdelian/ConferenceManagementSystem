@@ -91,4 +91,12 @@ create table ChosenPC(
 	constraint FK_ChosenPC_Roles foreign key(RoleID) references Roles(ID)
 )
 
+create table AuthorPapers(
+	AuthorID int,
+	PaperID int,
+	constraint PK_AuthorPapers_ID primary key(AuthorID,PaperID),
+	constraint FK_AuthorPapers_Author foreign key(AuthorID) references Authors(ID),
+	constraint FK_AuthorPapers_Papers foreign key(PaperID) references Papers(ID)
+)
+
 INSERT INTO Roles(RoleName) VALUES ('Author', 'Chair', 'Co-Chair', 'Regular', 'Listener')

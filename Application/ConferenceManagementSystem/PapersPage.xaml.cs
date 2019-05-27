@@ -45,5 +45,10 @@ namespace ConferenceManagementSystem
             sections = controller.getSectionsOfConference(conference);
             sectionsListView.ItemsSource = sections;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
