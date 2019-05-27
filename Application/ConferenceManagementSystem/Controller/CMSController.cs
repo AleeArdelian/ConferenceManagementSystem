@@ -48,6 +48,16 @@ namespace ConferenceManagementSystem.Controller
 
         }
 
+        public List<Conference> getMyConferences(User user)
+        {
+            List<Conference> conferences;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                conferences = db.Query<Conference>("SELECT C.ID,C.ConferenceName,C.ConferenceAddress,C.ConferenceDate FROM Conferences C INNER JOIN ConferenceUsers U ON C.ID=U.ConferenceID WHERE U.UserID="+user.ID).ToList();
+                return conferences;
+            }
+        }
+
         public User LogIN(string username, string password)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))

@@ -49,7 +49,7 @@ namespace ConferenceManagementSystem
 
         private void MyConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new MyConferencesPage();
+            contentFrame.Content = new MyConferencesPage(controller,user);
         }
     }
 }
