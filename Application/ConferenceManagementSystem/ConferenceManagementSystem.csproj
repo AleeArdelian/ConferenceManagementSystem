@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Controller\CMSController.cs" />
     <Compile Include="Domain\Author.cs" />
+    <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\PCMember.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="MainWindow.xaml.cs">

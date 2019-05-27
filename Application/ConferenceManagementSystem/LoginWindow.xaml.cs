@@ -44,8 +44,9 @@ namespace ConferenceManagementSystem
             {
                 User user = controller.LogIN(username, passwd);
                 UserMainWindow userMainwWin = new UserMainWindow(controller, user);
-                userMainwWin.Show();
                 this.Hide();
+                userMainwWin.ShowDialog();
+                this.Show();
             }
             catch (Exception ex)
             {

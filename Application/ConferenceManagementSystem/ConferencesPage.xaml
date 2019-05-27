@@ -10,6 +10,15 @@
 
     <Grid>
         <Label Content="Available conferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="27" Width="180" FontFamily="Yu Gothic" FontSize="16"/>
+        <ListView HorizontalAlignment="Left" Height="180" Margin="10,42,0,0" VerticalAlignment="Top" Width="612" ItemsSource="{Binding conferences}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="260"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceAddress}" Header="Address" Width="265"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceDate}" Header="Date" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

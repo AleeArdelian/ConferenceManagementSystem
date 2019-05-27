@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using ConferenceManagementSystem.Domain;
 
 namespace ConferenceManagementSystem.Controller
 {
@@ -16,6 +17,17 @@ namespace ConferenceManagementSystem.Controller
         public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Conference> getConferences()
+        {
+            List<Conference> conferences;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                conferences = db.Query<Conference>("SELECT * FROM Conferences").ToList();
+                return conferences;
+            }
+
         }
 
         public User LogIN(string username, string password)
