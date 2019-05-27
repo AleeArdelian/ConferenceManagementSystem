@@ -1,0 +1,15 @@
+﻿<Page x:Class="ConferenceManagementSystem.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ConferenceManagementSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="326.4" d:DesignWidth="632"
+      Title="ProfilePage">
+
+    <Grid Width="632" Height="344.8">
+        <Label Content="Label" HorizontalAlignment="Left" Margin="178,169,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>

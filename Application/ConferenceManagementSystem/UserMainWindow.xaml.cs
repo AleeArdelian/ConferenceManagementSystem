@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,19 +21,30 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class UserMainWindow : Window
     {
-        public UserMainWindow()
+        private CMSController controller;
+        private User user;
+
+        public UserMainWindow(CMSController controller, User user)
         {
+            this.user = user;
+            this.controller = controller;
             InitializeComponent();
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            fullNameLabel.Content = user.LastName.ToUpper() + " " + user.FirstName.ToUpper() + ", " + user.RoleID.ToString();
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ProfileItem_Selected(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Content = new ProfilePage();
+        }
+
+        private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Content = new ConferencesPage();
         }
     }
 }

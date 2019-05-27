@@ -90,3 +90,5 @@ create table ChosenPC(
 	RoleID int,
 	constraint FK_ChosenPC_Roles foreign key(RoleID) references Roles(ID)
 )
+
+INSERT INTO Roles(RoleName) VALUES ('Author', 'Chair', 'Co-Chair', 'Regular', 'Listener')
