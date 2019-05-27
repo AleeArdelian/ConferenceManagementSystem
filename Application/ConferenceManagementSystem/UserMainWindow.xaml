@@ -19,11 +19,11 @@
                 <RowDefinition Height="169*"/>
                 <RowDefinition Height="176*"/>
             </Grid.RowDefinitions>
-            <ListBox Grid.RowSpan="2" Margin="0,0,0,-0.2" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI" FontSize="14">
+            <ListBox Name="menuListBox" Grid.RowSpan="2" Margin="0,0,0,-0.2" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI" FontSize="14">
                 <ListBoxItem x:Name="conferencesItem" Content="Conferences" HorizontalContentAlignment="Center" Selected="ConferencesItem_Selected"/>
-                <ListBoxItem Content="Papers" HorizontalContentAlignment="Center"/>
-                <ListBoxItem Content="Reviews" HorizontalContentAlignment="Center"/>
-                <ListBoxItem Content="Deadlines" HorizontalContentAlignment="Center"/>
+                <ListBoxItem x:Name="papersItem"  Content="Papers" HorizontalContentAlignment="Center" Selected="PapersItem_Selected"/>
+                <ListBoxItem x:Name="reviewsItem" Content="Reviews" HorizontalContentAlignment="Center" Selected="ReviewsItem_Selected"/>
+                <ListBoxItem x:Name="deadlineItem" Content="Deadlines" HorizontalContentAlignment="Center" Selected="DeadlineItem_Selected"/>
                 <ListBoxItem x:Name="myConferencesItem"  Content="My Conferences" HorizontalAlignment="Center" Selected="MyConferencesItem_Selected"/>
                 <ListBoxItem x:Name="profileItem" Content="Profile" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
             </ListBox>

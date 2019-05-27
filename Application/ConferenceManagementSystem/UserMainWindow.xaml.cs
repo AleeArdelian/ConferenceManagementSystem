@@ -51,5 +51,35 @@ namespace ConferenceManagementSystem
         {
             contentFrame.Content = new MyConferencesPage(controller,user);
         }
+
+        private void PapersItem_Selected(object sender, RoutedEventArgs e)
+        {
+            if (user.RoleID == 5)
+                MessageBox.Show("You don't have the right to acces this page");
+            else
+            {
+
+            }
+        }
+
+        private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
+        {
+            if (user.RoleID == 5)
+                MessageBox.Show("You don't have the right to acces this page");
+            else
+            {
+
+            }
+        }
+
+        private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
+        {
+            if (user.RoleID == 5)
+                MessageBox.Show("You don't have the right to acces this page");
+            else
+            {
+
+            }
+        }
     }
 }
