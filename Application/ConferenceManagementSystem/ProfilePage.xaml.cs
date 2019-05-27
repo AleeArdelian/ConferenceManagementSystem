@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,13 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class ProfilePage : Page
     {
-        public ProfilePage()
+        CMSController controller;
+        User user;
+
+        public ProfilePage(CMSController controller, User user)
         {
+            this.user = user;
+            this.controller = controller;
             InitializeComponent();
         }
     }

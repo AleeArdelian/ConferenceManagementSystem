@@ -39,17 +39,17 @@ namespace ConferenceManagementSystem
 
         private void ProfileItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ProfilePage();
+            contentFrame.Content = new ProfilePage(controller,user);
         }
 
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ConferencesPage(controller,user);
+            contentFrame.Content = new ConferencesPage(controller, user);
         }
 
         private void MyConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new MyConferencesPage(controller,user);
+            contentFrame.Content = new MyConferencesPage(controller, user);
         }
 
         private void PapersItem_Selected(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace ConferenceManagementSystem
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-            if (user.RoleID == 5)
+            if (user.RoleID == 5 || user.RoleID == 1)
                 MessageBox.Show("You don't have the right to acces this page");
             else
             {
