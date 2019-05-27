@@ -19,6 +19,27 @@ namespace ConferenceManagementSystem.Controller
             throw new NotImplementedException();
         }
 
+        public void updateListener(int id, string firstName, string lastName)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "UPDATE Users SET FirstName='"+firstName+"',LastName='"+lastName+"' WHERE ID="+id;
+                db.Execute(query);
+            }
+            
+        }
+
+        public void updateAuthor(int id, string firstName, string lastName, string affiliation)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
+                String query1 = "UPDATE Authors SET Affiliation='" + affiliation + "' WHERE ID=" + id;
+                db.Execute(query);
+                db.Execute(query1);
+            }
+        }
+
         public void attendConference(Conference conference, User user)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -73,7 +94,7 @@ namespace ConferenceManagementSystem.Controller
                 }
                 if (user.RoleID == 1)
                 {
-                    Author author = db.QueryFirst<Author>("SELECT U.ID, FirstName, LastName, RoleID, email, Username, Passwd, Affiliation FROM Users U INNER JOIN PCMembers A on U.ID=A.ID WHERE Username='" + username + "' AND Passwd='" + password + "'");
+                    Author author = db.QueryFirst<Author>("SELECT U.ID, FirstName, LastName, RoleID, email, Username, Passwd, Affiliation FROM Users U INNER JOIN Authors A on U.ID=A.ID WHERE Username='" + username + "' AND Passwd='" + password + "'");
                     return author;
                 }
                 else if(user.RoleID == 2 || user.RoleID == 3 || user.RoleID == 4)
