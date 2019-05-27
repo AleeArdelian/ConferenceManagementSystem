@@ -40,6 +40,17 @@ namespace ConferenceManagementSystem.Controller
             }
         }
 
+        public void updatePCMember(int id, string firstName, string lastName, string affiliation, string website)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
+                String query1 = "UPDATE PCMembers SET Affiliation='" + affiliation + "', website='"+website+"' WHERE ID=" + id;
+                db.Execute(query);
+                db.Execute(query1);
+            }
+        }
+
         public void attendConference(Conference conference, User user)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))

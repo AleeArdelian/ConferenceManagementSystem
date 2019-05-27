@@ -74,12 +74,20 @@ namespace ConferenceManagementSystem
                 }
                 else
                 {
-                    MessageBox.Show("Invalid first name,last or affiliation name!");
+                    MessageBox.Show("Invalid first name,last name or affiliation name!");
                 }
             }
             else
             {
-
+                if (firstNameTextBox.Text != "" && lastNameTextBox.Text != "" && affiliationTextBox.Text != "" && websiteTextBox.Text!="")
+                {
+                    controller.updatePCMember(user.ID, firstNameTextBox.Text, lastNameTextBox.Text, affiliationTextBox.Text,websiteTextBox.Text);
+                    MessageBox.Show("Success!");
+                }
+                else
+                {
+                    MessageBox.Show("Invalid first name,last name,affiliation or website name!");
+                }
             }
             
         }
