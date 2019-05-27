@@ -46,5 +46,10 @@ namespace ConferenceManagementSystem
         {
             contentFrame.Content = new ConferencesPage(controller,user);
         }
+
+        private void MyConferencesItem_Selected(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Content = new MyConferencesPage();
+        }
     }
 }

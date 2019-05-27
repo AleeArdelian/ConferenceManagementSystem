@@ -24,9 +24,9 @@
                 <ListBoxItem Content="Papers" HorizontalContentAlignment="Center"/>
                 <ListBoxItem Content="Reviews" HorizontalContentAlignment="Center"/>
                 <ListBoxItem Content="Deadlines" HorizontalContentAlignment="Center"/>
+                <ListBoxItem x:Name="myConferencesItem"  Content="My Conferences" HorizontalAlignment="Center" Selected="MyConferencesItem_Selected"/>
                 <ListBoxItem x:Name="profileItem" Content="Profile" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
             </ListBox>
-
         </Grid>
         <Frame x:Name="contentFrame" Margin="162,94,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
