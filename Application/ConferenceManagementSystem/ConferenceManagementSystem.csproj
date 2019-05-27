@@ -74,6 +74,9 @@
     <Compile Include="MyConferencesPage.xaml.cs">
       <DependentUpon>MyConferencesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PapersPage.xaml.cs">
+      <DependentUpon>PapersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MyConferencesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PapersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
