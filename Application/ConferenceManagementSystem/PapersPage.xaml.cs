@@ -90,5 +90,12 @@ namespace ConferenceManagementSystem
                 MessageBox.Show("You can't upload papers");
             }
         }
+
+        private void SectionsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Section section = (Section)sectionsListView.SelectedItems[0];
+            papers = controller.getPapersOfSection(section);
+            papersListView.ItemsSource = papers;
+        }
     }
 }
