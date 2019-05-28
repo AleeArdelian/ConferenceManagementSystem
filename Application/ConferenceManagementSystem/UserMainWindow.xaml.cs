@@ -30,6 +30,14 @@ namespace ConferenceManagementSystem
             this.controller = controller;
             InitializeComponent();
             fullNameLabel.Content = user.LastName.ToUpper() + " " + user.FirstName.ToUpper() + ", " + user.RoleID.ToString();
+
+            if (user.RoleID == 5){
+                this.papersItem.Visibility = Visibility.Collapsed;
+                this.reviewsItem.Visibility = Visibility.Collapsed;
+                this.deadlineItem.Visibility = Visibility.Collapsed;
+            }
+            if (user.RoleID == 1)
+                this.reviewsItem.Visibility = Visibility.Collapsed;
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -54,32 +62,17 @@ namespace ConferenceManagementSystem
 
         private void PapersItem_Selected(object sender, RoutedEventArgs e)
         {
-            if (user.RoleID == 5)
-                MessageBox.Show("You don't have the right to acces this page");
-            else
-            {
-                contentFrame.Content = new PapersPage(controller, user);
-            }
+            contentFrame.Content = new PapersPage(controller, user);   
         }
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-            if (user.RoleID == 5 || user.RoleID == 1)
-                MessageBox.Show("You don't have the right to acces this page");
-            else
-            {
-
-            }
+   
         }
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
         {
-            if (user.RoleID == 5)
-                MessageBox.Show("You don't have the right to acces this page");
-            else
-            {
 
-            }
         }
     }
 }
