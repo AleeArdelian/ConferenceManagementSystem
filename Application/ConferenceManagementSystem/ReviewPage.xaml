@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ReviewPage">
 
-    <Grid>
+    <Grid RenderTransformOrigin="0.496,0.526">
         <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,25,0,0" VerticalAlignment="Top" Width="166">
             <ListView.View>
                 <GridView>
@@ -17,9 +17,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="View abstract" HorizontalAlignment="Left" Margin="113,217,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_1"/>
-        <Button Content="View paper" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="269,104,0,0">
+        <Button Content="View abstract" HorizontalAlignment="Left" Margin="218,63,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_1"/>
+        <Button Content="View paper" HorizontalAlignment="Left" Margin="218,28,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click"/>
+        <ComboBox x:Name="qualifComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="218,133,0,0">
             <ComboBoxItem Name="cbi1">strong accept</ComboBoxItem>
             <ComboBoxItem Name="cbi2">accept</ComboBoxItem>
             <ComboBoxItem Name="cbi3">weak accept</ComboBoxItem>
@@ -28,7 +28,10 @@
             <ComboBoxItem Name="cbi6">reject</ComboBoxItem>
             <ComboBoxItem Name="cbi7">strong reject</ComboBoxItem>
         </ComboBox>
-        <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="269,72,0,0" VerticalAlignment="Top"/>
+        <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="218,99,0,0" VerticalAlignment="Top"/>
+        <Button Content="Sumbit" HorizontalAlignment="Left" Margin="355,238,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402"/>
+        <Label Content="Specifications:" HorizontalAlignment="Left" Margin="368,26,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
