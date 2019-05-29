@@ -41,9 +41,15 @@ namespace ConferenceManagementSystem
             contentFrame.Content = new ProfilePage(controller, user);
         }
 
+        private void CommitteeItem_Selected(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Content = new ProgCommPage()
+        }
+
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
             contentFrame.Content = new ConfManagementPage(controller, user);
         }
+
     }
 }

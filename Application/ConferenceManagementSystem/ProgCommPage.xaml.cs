@@ -19,31 +19,19 @@ using System.Windows.Shapes;
 namespace ConferenceManagementSystem
 {
     /// <summary>
-    /// Interaction logic for ConfManagementPage.xaml
+    /// Interaction logic for ProgCommPage.xaml
     /// </summary>
-    public partial class ConfManagementPage : Page
+    public partial class ProgCommPage : Page
     {
         private CMSController controller;
         private User user;
-        public List<Conference> conferences { get; set; }
+        private List<ChosenPcMember> pcs;
 
-        public ConfManagementPage(CMSController controller, User user)
+        public ProgCommPage(CMSController controller, User user)
         {
             this.user = user;
             this.controller = controller;
             InitializeComponent();
-            conferences = this.controller.getConferences();
-            DataContext = this;
-
         }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            DateTime date = Convert.ToDateTime(confDate.Text);
-            controller.AddConference(nameTextBox.Text, addressTextBox.Text, date);
-            conferences = this.controller.getConferences();
-            conferencesListView.ItemsSource = conferences;
-        }
-
     }
 }

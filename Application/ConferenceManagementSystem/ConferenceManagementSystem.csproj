@@ -71,6 +71,7 @@
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Author.cs" />
+    <Compile Include="Domain\ChosenPcMember.cs" />
     <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\Paper.cs" />
     <Compile Include="Domain\PCMember.cs" />
@@ -90,6 +91,9 @@
     </Compile>
     <Compile Include="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProgCommPage.xaml.cs">
+      <DependentUpon>ProgCommPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
@@ -140,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProgCommPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

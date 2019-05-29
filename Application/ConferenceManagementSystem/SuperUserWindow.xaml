@@ -18,7 +18,7 @@
             </Grid.RowDefinitions>
             <ListBox Name="menuListBox" Grid.RowSpan="2" Margin="0,0,0,-0.2" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI" FontSize="14">
                 <ListBoxItem x:Name="conferencesItem" Content="Conferences" HorizontalContentAlignment="Center" Selected="ConferencesItem_Selected"/>
-                <ListBoxItem x:Name="committeeItem" Content="Program Committee" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
+                <ListBoxItem x:Name="committeeItem" Content="Program Committee" Selected="CommitteeItem_Selected" HorizontalContentAlignment="Center"/>
                 <ListBoxItem x:Name="profileItem" Content="Profile" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
             </ListBox>
         </Grid>
