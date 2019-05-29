@@ -27,9 +27,9 @@ namespace ConferenceManagementSystem.Controller
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID)
         {
             /*
-             * adds a new paper in the DB
+             * adds a new paper in the Papers and AuthorPapers tables
              * pre: paper name (string), topic (string), the path in the disc of the paper (string), the content on the disc of the abstract (string), the id of the section for the paper (integer), the author id (integer)
-             * post: the paper is added to the AuthorPapers table and Papers table
+             * post: -
              */
             List<String> pid;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -53,9 +53,9 @@ namespace ConferenceManagementSystem.Controller
         public void updateListener(int id, string firstName, string lastName)
         {
             /*
-             * updates the data of a registered listener
+             * updates the listener with the given id in the Users table
              * pre: listener id(int), first name (string), last name (string)
-             * post: the listener with the ID = id is updated in the DB
+             * post: -
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -68,9 +68,9 @@ namespace ConferenceManagementSystem.Controller
         public void updateAuthor(int id, string firstName, string lastName, string affiliation)
         {
             /*
-             * updates the data of an author
+             * updates the author with the given id in the Authors and Users tables
              * pre: author id (int), first name (string), last name (string), affiliation (string)
-             * post: the author with the ID=id is updated in the tables Authors and Users
+             * post: -
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -84,9 +84,9 @@ namespace ConferenceManagementSystem.Controller
         public void updatePCMember(int id, string firstName, string lastName, string affiliation, string website)
         {
             /*
-             * updates the data of a PC Member
+             * updates the PC Member with the given id in the Users and PcMembers tables
              * pre: PC Memeber id (integer), first name (string), last name (string), affiliation (string), website (string)
-             * post: the PC Member with the ID=id is updated in the Users and the PCMembers tables
+             * post: -
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -100,9 +100,9 @@ namespace ConferenceManagementSystem.Controller
         public void attendConference(Conference conference, User user)
         {
             /*
-             * adds a participant to a given conference
+             * adds the user id and the conference id in the ConferenceUser table 
              * pre: conference and user
-             * post: adds the user id and the conference id in the ConferenceUser table, or throws an exception if the user is already marked as attending the given conference
+             * post: throws an exception if the user is already marked as attending the given conference
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
