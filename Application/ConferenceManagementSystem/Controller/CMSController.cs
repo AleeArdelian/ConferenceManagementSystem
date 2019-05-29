@@ -208,18 +208,23 @@ namespace ConferenceManagementSystem.Controller
         {
             List<String> res;
             List<String> res1;
+            List<String> res2;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 res = db.Query<String>("SELECT FirstName FROM Users WHERE Username='" + username + "'").ToList();
-                res1 = db.Query<String>("SELECT FirstName FROM Users WHERE email='" + email + "'").ToList();
+                res1 = db.Query<String>("SELECT FirstName FROM Users WHERE email='" + email + "' AND RoleID!='" + 4 +"'").ToList();
                 if (res.Capacity > 0 || res1.Capacity > 0)
                     throw new Exception("Username/Email already in use");
                 else
                 {
+                    int isPc = 0;
+                    res2 = db.Query<String>("SELECT email FROM ChosenPC WHERE email='" + email + "'AND RoleID='" + 4 + "'").ToList();
+                    if (res2.Capacity > 0)
+                        isPc = 1;
                     String query = "INSERT INTO Users(FirstName,LastName,Username,Passwd,email,RoleID) values('" + fname + "','" + lname + "','" + username + "','" + passwd + "','" + email + "',1)";
                     db.Execute(query);
                     User user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + passwd + "'");
-                    String query1 = "INSERT INTO Authors(ID,Affiliation) values("+user.ID+",'" + affiliation + "')";
+                    String query1 = "INSERT INTO Authors(ID,Affiliation,isPCMember) values('" +user.ID+ "','" + affiliation + "'," + isPc +")";
                     db.Execute(query1);
                 }
             }
