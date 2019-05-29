@@ -33,8 +33,16 @@ namespace ConferenceManagementSystem
             this.controller = controller;
             InitializeComponent();
             conferences = this.controller.getConferences();
+            DataContext = this;
 
         }
 
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime date = Convert.ToDateTime(confDate.Text);
+            controller.AddConference(nameTextBox.Text, addressTextBox.Text, date);
+            conferences = this.controller.getConferences();
+            conferencesListView.ItemsSource = conferences;
+        }
     }
 }

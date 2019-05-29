@@ -43,7 +43,7 @@ namespace ConferenceManagementSystem
 
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ConferencesPage(controller, user);
+            contentFrame.Content = new ConfManagementPage(controller, user);
         }
     }
 }
