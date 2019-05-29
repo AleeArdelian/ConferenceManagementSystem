@@ -181,6 +181,11 @@ namespace ConferenceManagementSystem.Controller
         }
 
         public void updateSectionDeadline(int id, DateTime newDate) {
+            /*
+             * updates the deadline from a given section
+             * pre: the section id (int) and the new deadline (DateTime)
+             * post: the PaperDeadline field for the sections with the given id in the table Sections is updated
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
                 String query = "UPDATE Sections SET PaperDeadline='" + newDate + "' WHERE ID=" + id;
                 db.Execute(query);
