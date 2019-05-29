@@ -9,7 +9,7 @@
       Title="ReviewPage">
 
     <Grid>
-        <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,58,0,0" VerticalAlignment="Top" Width="166">
+        <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,25,0,0" VerticalAlignment="Top" Width="166">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
@@ -17,8 +17,18 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="View abstract" HorizontalAlignment="Left" Margin="113,249,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_1"/>
-        <Button Content="View paper" HorizontalAlignment="Left" Margin="33,249,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="View abstract" HorizontalAlignment="Left" Margin="113,217,0,0" VerticalAlignment="Top" Width="86" Click="Button_Click_1"/>
+        <Button Content="View paper" HorizontalAlignment="Left" Margin="33,217,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="269,104,0,0">
+            <ComboBoxItem Name="cbi1">strong accept</ComboBoxItem>
+            <ComboBoxItem Name="cbi2">accept</ComboBoxItem>
+            <ComboBoxItem Name="cbi3">weak accept</ComboBoxItem>
+            <ComboBoxItem Name="cbi4">borderline</ComboBoxItem>
+            <ComboBoxItem Name="cbi5">weak reject</ComboBoxItem>
+            <ComboBoxItem Name="cbi6">reject</ComboBoxItem>
+            <ComboBoxItem Name="cbi7">strong reject</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="269,72,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
