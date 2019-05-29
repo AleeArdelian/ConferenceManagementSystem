@@ -143,6 +143,11 @@ namespace ConferenceManagementSystem.Controller
 
         private int getRoleId(string role)
         {
+            /*
+             * gets the id of the given role from the Roles table
+             * pre: role (string)
+             * post: the role id (integer)
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 int roleId = db.QueryFirst<int>("SELECT ID from Roles WHERE RoleName = '" + role + "'");
