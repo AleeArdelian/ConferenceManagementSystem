@@ -44,6 +44,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
+        <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="284,202,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click"/>
+        <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="284,231,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click"/>
     </Grid>
 </Page>

@@ -1,6 +1,7 @@
 ﻿using ConferenceManagementSystem.Controller;
 using ConferenceManagementSystem.Domain;
 using ConferenceManagementSystem.Entities;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -96,6 +97,38 @@ namespace ConferenceManagementSystem
             Section section = (Section)sectionsListView.SelectedItems[0];
             papers = controller.getPapersOfSection(section);
             papersListView.ItemsSource = papers;
+        }
+
+        private void BtnBroeseAbstract_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "PDF Files|*.pdf";
+            fileDialog.DefaultExt = ".pdf";
+            Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
+            if (dialogOK == true)
+            {
+                string fileName = fileDialog.FileName;
+                abstractLocationTextBox.Text = fileName;
+
+            }
+        }
+
+        private void BtnBrowsePaper_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "PDF Files|*.pdf";
+            fileDialog.DefaultExt = ".pdf";
+            Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
+            if (dialogOK == true)
+            {
+                string fileName = fileDialog.FileName;
+                paperLocationTextBox.Text = fileName;
+
+            }
         }
     }
 }
