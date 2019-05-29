@@ -28,10 +28,10 @@
             <ComboBoxItem Name="cbi6">reject</ComboBoxItem>
             <ComboBoxItem Name="cbi7">strong reject</ComboBoxItem>
         </ComboBox>
-        <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="218,99,0,0" VerticalAlignment="Top"/>
-        <Button Content="Sumbit" HorizontalAlignment="Left" Margin="355,238,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402"/>
-        <Label Content="Specifications:" HorizontalAlignment="Left" Margin="368,26,0,0" VerticalAlignment="Top"/>
+        <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="218,104,0,0" VerticalAlignment="Top"/>
+        <Button Content="Sumbit" HorizontalAlignment="Left" Margin="355,238,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <TextBox x:Name="commentBox" HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402"/>
+        <Label Content="Specifications:" HorizontalAlignment="Left" Margin="355,22,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
