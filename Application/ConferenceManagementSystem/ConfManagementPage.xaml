@@ -21,7 +21,9 @@
         <Label Content="Conferences:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="128"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Delete" HorizontalAlignment="Left" Margin="90,168,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="Name: " HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="63,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Address:" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="addressTextBox" HorizontalAlignment="Left" Height="23" Margin="63,225,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Page>
