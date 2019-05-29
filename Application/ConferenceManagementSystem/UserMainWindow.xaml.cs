@@ -74,7 +74,7 @@ namespace ConferenceManagementSystem
             }
             else
             {
-
+                contentFrame.Content = new ChairReview(controller, user);
             }
         }
 

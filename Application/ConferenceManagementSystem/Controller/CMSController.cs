@@ -314,7 +314,6 @@ namespace ConferenceManagementSystem.Controller
         {
             List<String> res;
             List<String> res1;
-            List<String> res2;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 res = db.Query<String>("SELECT FirstName FROM Users WHERE Username='" + username + "'").ToList();
@@ -329,6 +328,24 @@ namespace ConferenceManagementSystem.Controller
                     String query1 = "INSERT INTO Authors(ID,Affiliation) values('" +user.ID+ "','" + affiliation + ")";
                     db.Execute(query1);
                 }
+            }
+        }
+
+        public List<Review> GetReviewsForPaper(Paper paper)
+        {
+            List<Review> reviews;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                reviews = db.Query<Review>("SELECT * FROM Reviews WHERE PaperId = " + paper.ID).ToList();
+                return reviews;
+            }
+        }
+
+        public void reevalPaper(Paper paper)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                db.Execute("UPDATE Reviews SET ReevalRequest = 1 WHERE ID=" + paper.ID);
             }
         }
 

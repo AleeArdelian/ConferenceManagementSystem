@@ -60,6 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChairReview.xaml.cs">
+      <DependentUpon>ChairReview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConferencesPage.xaml.cs">
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,7 @@
     <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\Paper.cs" />
     <Compile Include="Domain\PCMember.cs" />
+    <Compile Include="Domain\Review.cs" />
     <Compile Include="Domain\Section.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -110,6 +114,10 @@
     <Compile Include="UserMainWindow.xaml.cs">
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChairReview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConferencesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
