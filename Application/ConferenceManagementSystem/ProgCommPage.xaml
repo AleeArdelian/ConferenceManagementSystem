@@ -19,10 +19,12 @@
         </ListView>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="50,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="roleComboBox" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="160" SelectedIndex="0" Height="25" SelectionChanged="RoleComboBox_SelectionChanged">
+        <ComboBox x:Name="roleComboBox" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="160" SelectedIndex="0" Height="25">
             <ComboBoxItem Content="Chair" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Co-Chair" HorizontalAlignment="Left" Width="118.4"/>
             <ComboBoxItem Content="Regular" HorizontalAlignment="Left" Width="118.4"/>
         </ComboBox>
+        <Button x:Name="addButton" Content="Add" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button x:Name="deleteButton" Content="Delete" HorizontalAlignment="Left" Margin="95,238,0,0" VerticalAlignment="Top" Width="75" Click="DeleteButton_Click"/>
     </Grid>
 </Page>

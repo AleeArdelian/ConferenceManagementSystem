@@ -26,9 +26,11 @@ namespace ConferenceManagementSystem
         private CMSController controller;
         private User user;
         public List<Conference> conferences { get; set; }
+        SuperUserWindow parentWindow;
 
-        public ConfManagementPage(CMSController controller, User user)
+        public ConfManagementPage(SuperUserWindow parent, CMSController controller, User user)
         {
+            this.parentWindow = parent;
             this.user = user;
             this.controller = controller;
             InitializeComponent();
@@ -45,5 +47,10 @@ namespace ConferenceManagementSystem
             conferencesListView.ItemsSource = conferences;
         }
 
+        private void ConferencesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Conference conference = (Conference)this.conferencesListView.SelectedItems[0];
+            this.parentWindow.setConference(conference);
+        }
     }
 }

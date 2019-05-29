@@ -1,4 +1,5 @@
 ﻿using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Domain;
 using ConferenceManagementSystem.Entities;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace ConferenceManagementSystem
     {
         private CMSController controller;
         private User user;
+        private Conference selectedConference = null;
 
         public SuperUserWindow(CMSController controller, User user)
         {
@@ -35,6 +37,12 @@ namespace ConferenceManagementSystem
         {
             this.Close();
         }
+        
+        public void setConference(Conference conf)
+        {
+            this.selectedConference = conf;
+            conferenceLabel.Content = conf.ConferenceName;
+        }
 
         private void ProfileItem_Selected(object sender, RoutedEventArgs e)
         {
@@ -46,9 +54,14 @@ namespace ConferenceManagementSystem
             contentFrame.Content = new ProgCommPage(controller, user);
         }
 
+        private void SectionsItem_Selected(object sender, RoutedEventArgs e)
+        {
+            contentFrame.Content = new ProgCommPage(controller, user);
+        }
+
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ConfManagementPage(controller, user);
+            contentFrame.Content = new ConfManagementPage(this, controller, user);
         }
 
     }

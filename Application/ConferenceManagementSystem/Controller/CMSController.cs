@@ -50,11 +50,20 @@ namespace ConferenceManagementSystem.Controller
             }
         }
 
+        public void deleteChosen(string email)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "DELETE FROM ChosenPC WHERE Email = '" + email + "'";
+                db.Execute(query);
+            }
+        }
+
         private int getRoleId(string role)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
-                int roleId = db.QueryFirst<int>("SELECT RoleID from Roles WHERE RoleName = '" + role + "'");
+                int roleId = db.QueryFirst<int>("SELECT ID from Roles WHERE RoleName = '" + role + "'");
                 return roleId;
             }
         }

@@ -10,6 +10,8 @@
         <Grid Height="94" Margin="0,0,-0.4,0" VerticalAlignment="Top" Background="#FF142D4C">
             <Label Content="You are logged in as: Steering Committee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="Black" FontFamily="Yu Gothic" FontSize="14"/>
             <Button x:Name="logoutButton" Content="Logout" Margin="0,18,10,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Height="55" HorizontalAlignment="Right" Width="75" Foreground="Black" Click="LogoutButton_Click" FontFamily="Yu Gothic" FontSize="14"/>
+            <Label Content="Selected conference: " HorizontalAlignment="Left" Margin="17,42,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="conferenceLabel" Content="None" HorizontalAlignment="Left" Margin="145,42,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Margin="0,94,0,0" Width="162" Background="#FF385170">
             <Grid.RowDefinitions>
@@ -19,6 +21,7 @@
             <ListBox Name="menuListBox" Grid.RowSpan="2" Margin="0,0,0,-0.2" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Yu Gothic UI" FontSize="14">
                 <ListBoxItem x:Name="conferencesItem" Content="Conferences" HorizontalContentAlignment="Center" Selected="ConferencesItem_Selected"/>
                 <ListBoxItem x:Name="committeeItem" Content="Program Committee" Selected="CommitteeItem_Selected" HorizontalContentAlignment="Center"/>
+                <ListBoxItem x:Name="sectionsItem" Content="Sections" Selected="SectionsItem_Selected" HorizontalContentAlignment="Center"/>
                 <ListBoxItem x:Name="profileItem" Content="Profile" Selected="ProfileItem_Selected" HorizontalContentAlignment="Center"/>
             </ListBox>
         </Grid>

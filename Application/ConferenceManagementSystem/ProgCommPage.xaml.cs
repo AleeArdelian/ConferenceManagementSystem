@@ -34,11 +34,22 @@ namespace ConferenceManagementSystem
             InitializeComponent();
             pcs = this.controller.getChosen();
             DataContext = this;
+            pcListView.ItemsSource = pcs;
         }
 
-        private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            controller.addChosen(nameTextBox.Text, roleComboBox.Text);
+            pcs = this.controller.getChosen();
+            pcListView.ItemsSource = pcs;
+        }
 
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            ChosenPcMember cpm = (ChosenPcMember)pcListView.SelectedItems[0];
+            controller.deleteChosen(cpm.email);
+            pcs = this.controller.getChosen();
+            pcListView.ItemsSource = pcs;
         }
     }
 }
