@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:ConferenceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PapersPage">
+      Title="PapersPage" Width="623" Height="326">
 
-    <Grid Margin="0,0,10,0">
+    <Grid Margin="0,0,10,0" Width="623" Height="326">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="271*"/>
             <ColumnDefinition Width="517*"/>
@@ -39,7 +39,7 @@
         <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="151,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="2"/>
         <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="2"/>
         <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147" Grid.ColumnSpan="2"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="151,282,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="164,282,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click" Grid.ColumnSpan="2"/>
         <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="219.667,10,0,0" VerticalAlignment="Top" Grid.Column="1" Height="26" Width="45"/>
         <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="219.667,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}" Grid.Column="1">
             <ListView.View>
@@ -49,8 +49,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="39.667,226,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click" Grid.Column="1"/>
-        <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="39.667,254,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click" Grid.Column="1"/>
+        <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="89,224,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click" Grid.Column="1"/>
+        <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="89,254,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click" Grid.Column="1"/>
         <Button Name="btnViewPaper" Content="View paper" HorizontalAlignment="Left" Margin="219.667,265,0,0" VerticalAlignment="Top" Width="75" Click="BtnViewPaper_Click" Height="22" Grid.Column="1"/>
         <Button Name="btnViewAbstract" Content="View abstract" HorizontalAlignment="Left" Margin="307.667,265,0,0" VerticalAlignment="Top" Width="80" Click="BtnViewAbstract_Click" Height="22" Grid.Column="1"/>
     </Grid>

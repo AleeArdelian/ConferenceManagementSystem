@@ -20,7 +20,7 @@ namespace ConferenceManagementSystem.Controller
             {
                 try
                 {
-                    String query = "INSERT INTO Sections VALUES ('" + name + "', '" + room + "', '" + date + "', " +confId + ", " + chairId + ")";
+                    String query = "INSERT INTO Sections VALUES ('" + name + "', '" + room + "', '" + date + "', " +chairId + ", " + confId + ")";
                     db.Execute(query);
                 }
                 catch (Exception ex)
@@ -52,6 +52,7 @@ namespace ConferenceManagementSystem.Controller
                 }
                 String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
                 db.Execute(query);
+
             }
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
