@@ -14,6 +14,31 @@ namespace ConferenceManagementSystem.Controller
 {
     public class CMSController
     {
+        public void addSection(string name, string room, DateTime date, int confId, int chairId)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                try
+                {
+                    String query = "INSERT INTO Sections VALUES ('" + name + "','" + room + "'," + date.Date + "," + confId + "," + chairId + ")";
+                    db.Execute(query);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public void deleteSection(int id)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "DELETE FROM Sections WHERE ID = " + id.ToString();
+                db.Execute(query);
+            }
+        }
+
         public void addReview(int paperId, int reviewerId, string qualifier, string comments)
         {
             List<String> papers;
@@ -25,17 +50,19 @@ namespace ConferenceManagementSystem.Controller
                 {
                     throw new Exception("There are already 4 reviewers on this paper!");
                 }
+
                 String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
                 db.Execute(query);
+
             }
         }
-        public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)
+        public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
                 {
-                    String query = "INSERT INTO Conferences VALUES ('" + ConferenceName + "','" + ConferenceAddress + "','" + ConferenceDate + "')";
+                    String query = "INSERT INTO Conferences VALUES ('" + ConferenceName + "','" + ConferenceAddress + "','" + ConferenceDate.ToString() + "')";
                     db.Execute(query);
                 }
                 catch (Exception ex)
