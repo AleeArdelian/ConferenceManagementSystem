@@ -23,7 +23,6 @@ create table Users(
 create table Authors(
 	ID int,
 	Affiliation varchar(30),
-	isPCMember bit,
 	constraint PK_Authors_ID primary key(ID),
 	constraint FK_Users_Authors foreign key(ID) references Users(ID)
 )
@@ -111,13 +110,10 @@ insert into Sections values ('Voting', 411, '08/01/2019',3,1),('Wars',302,'11/29
 select * from Users
 select * from PCMembers
 select * from ChosenPC
-
 */
 
-alter table Authors
-add isPCMember bit
 
-select * from Users
+
 select * from Authors
 select * from AuthorPapers
 select * from Papers
