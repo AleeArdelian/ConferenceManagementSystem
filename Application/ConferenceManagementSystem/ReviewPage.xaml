@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:ConferenceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ReviewPage">
+      Title="ReviewPage" Width="632" Height="326">
 
-    <Grid RenderTransformOrigin="0.496,0.526">
+    <Grid RenderTransformOrigin="0.496,0.526" Margin="10,0,0,0">
         <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,25,0,0" VerticalAlignment="Top" Width="166">
             <ListView.View>
                 <GridView>
@@ -29,8 +29,8 @@
             <ComboBoxItem Name="cbi7">strong reject</ComboBoxItem>
         </ComboBox>
         <Label Content="Give qualifier:&#xD;&#xA;" HorizontalAlignment="Left" Margin="218,104,0,0" VerticalAlignment="Top"/>
-        <Button Content="Sumbit" HorizontalAlignment="Left" Margin="355,238,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
-        <TextBox x:Name="commentBox" HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402"/>
+        <Button Content="Sumbit" HorizontalAlignment="Left" Margin="263,256,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" RenderTransformOrigin="0.551,1.375"/>
+        <TextBox x:Name="commentBox" HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <Label Content="Specifications:" HorizontalAlignment="Left" Margin="355,22,0,0" VerticalAlignment="Top"/>
 
     </Grid>
