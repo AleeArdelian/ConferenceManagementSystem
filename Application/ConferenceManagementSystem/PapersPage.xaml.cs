@@ -43,6 +43,12 @@ namespace ConferenceManagementSystem
             {
                 papersLabel.Visibility = Visibility.Hidden;
                 papersListView.Visibility = Visibility.Hidden;
+                changeDeadButton.Visibility = Visibility.Hidden;
+                
+            }
+            if(user.RoleID == 4)
+            {
+                changeDeadButton.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -66,7 +72,12 @@ namespace ConferenceManagementSystem
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (user.RoleID == 1 || user.RoleID == 4)
-            {
+            {   
+                if(sectionsListView.SelectedItems.Count > 1 || sectionsListView.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("You can select only one session");
+                }
+
                 Section section = (Section)sectionsListView.SelectedItems[0];
                 try
                 {
@@ -89,6 +100,23 @@ namespace ConferenceManagementSystem
             {
                 MessageBox.Show("You can't upload papers");
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+
+            if (sectionsListView.SelectedItems.Count > 1 || sectionsListView.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("You can select only one session");
+                return;
+            }
+            Section section = (Section)sectionsListView.SelectedItems[0];
+
+            DeadlineWindow deadlineWindow = new DeadlineWindow(controller, section);
+            deadlineWindow.ShowDialog();
+
+
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿<Window x:Class="ConferenceManagementSystem.DeadlineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConferenceManagementSystem"
+        mc:Ignorable="d"
+        Title="DeadlineWindow" Height="200" Width="350">
+    <Grid Width="350" Height="200">
+        <Label Content="Day:" HorizontalAlignment="Left" Margin="38,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="Month:" HorizontalAlignment="Left" Margin="145,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="Year:" HorizontalAlignment="Left" Margin="254,42,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="dayCombo" HorizontalAlignment="Left" Margin="25,80,0,0" VerticalAlignment="Top" Width="71">
+            <ComboBoxItem Content="1"></ComboBoxItem>
+            <ComboBoxItem Content="2"></ComboBoxItem>
+            <ComboBoxItem Content="3"></ComboBoxItem>
+            <ComboBoxItem Content="4"></ComboBoxItem>
+            <ComboBoxItem Content="5"></ComboBoxItem>
+            <ComboBoxItem Content="6"></ComboBoxItem>
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="8"></ComboBoxItem>
+            <ComboBoxItem Content="9"></ComboBoxItem>
+            <ComboBoxItem Content="10"></ComboBoxItem>
+            <ComboBoxItem Content="11"></ComboBoxItem>
+            <ComboBoxItem Content="12"></ComboBoxItem>
+            <ComboBoxItem Content="13"></ComboBoxItem>
+            <ComboBoxItem Content="14"></ComboBoxItem>
+            <ComboBoxItem Content="15"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="monthCombo" HorizontalAlignment="Left" Margin="126,80,0,0" VerticalAlignment="Top" Width="75">
+            <ComboBoxItem Content="1"></ComboBoxItem>
+            <ComboBoxItem Content="2"></ComboBoxItem>
+            <ComboBoxItem Content="3"></ComboBoxItem>
+            <ComboBoxItem Content="4"></ComboBoxItem>
+            <ComboBoxItem Content="5"></ComboBoxItem>
+            <ComboBoxItem Content="6"></ComboBoxItem>
+            <ComboBoxItem Content="7"></ComboBoxItem>
+            <ComboBoxItem Content="8"></ComboBoxItem>
+            <ComboBoxItem Content="9"></ComboBoxItem>
+            <ComboBoxItem Content="10"></ComboBoxItem>
+            <ComboBoxItem Content="11"></ComboBoxItem>
+            <ComboBoxItem Content="12"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="yearCombo" HorizontalAlignment="Left" Margin="237,80,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.313,0.545">
+            <ComboBoxItem Content="2019"></ComboBoxItem>
+            <ComboBoxItem Content="2020"></ComboBoxItem>
+        </ComboBox>
+        <Button Content="Change" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="126,128,0,0" Click="Button_Click"/>
+
+    </Grid>
+</Window>

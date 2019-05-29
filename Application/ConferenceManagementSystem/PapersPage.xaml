@@ -8,35 +8,40 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PapersPage">
 
-    <Grid>
+    <Grid Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Conferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sections" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top"/>
-        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding conferences}" SelectionChanged="ListView_SelectionChanged">
+        <Label Content="Sections" HorizontalAlignment="Left" Margin="258,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="100" Margin="36,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding conferences}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="180"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Name="sectionsListView" HorizontalAlignment="Left" Height="100" Margin="225,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding sections}">
+        <ListView Name="sectionsListView" HorizontalAlignment="Left" Height="100" Margin="258,41,0,0" VerticalAlignment="Top" Width="285" ItemsSource="{Binding sections}" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding SectionName}" Header="Name" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding RoomName}" Header="Room" Width="80"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding PaperDeadline}" Header="Deadline" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Paper Name" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top"/>
-        <Label Content="Topic" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top"/>
-        <Label Content="Paper location" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top"/>
-        <Label Content="Abstract location" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="paperNameTextBox" HorizontalAlignment="Left" Height="23" Margin="132,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="132,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="132,258,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
-        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top"/>
-        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="436,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}">
+        <Label Content="Paper Name" HorizontalAlignment="Left" Margin="29,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Topic" HorizontalAlignment="Left" Margin="29,198,0,0" VerticalAlignment="Top"/>
+        <Label Content="Paper location" HorizontalAlignment="Left" Margin="29,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Abstract location" HorizontalAlignment="Left" Margin="29,254,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="paperNameTextBox" HorizontalAlignment="Left" Height="23" Margin="151,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="151,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="151,282,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
+        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="608,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="571,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
@@ -44,6 +49,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="changeDeadButton" Content="Change deadline" HorizontalAlignment="Left" Margin="446,154,0,0" VerticalAlignment="Top" Width="97" Height="30" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

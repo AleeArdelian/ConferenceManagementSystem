@@ -109,3 +109,4 @@ select * from PCMembers
 select * from ChosenPC
 
 */
+select * from Sections

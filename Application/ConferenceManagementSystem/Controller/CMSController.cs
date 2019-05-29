@@ -137,14 +137,16 @@ namespace ConferenceManagementSystem.Controller
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 User user = null;
-                try
+                user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + password + "'");
+
+                /*try
                 {
                     user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + password + "'");
                 }
                 catch (SqlException)
                 {
                     throw new Exception("User not found");
-                }
+                }*/
                 if (user.RoleID == 1)
                 {
                     Author author = db.QueryFirst<Author>("SELECT U.ID, FirstName, LastName, RoleID, email, Username, Passwd, Affiliation FROM Users U INNER JOIN Authors A on U.ID=A.ID WHERE Username='" + username + "' AND Passwd='" + password + "'");

@@ -64,6 +64,9 @@
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller\CMSController.cs" />
+    <Compile Include="DeadlineWindow.xaml.cs">
+      <DependentUpon>DeadlineWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Author.cs" />
     <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\Paper.cs" />
@@ -89,6 +92,10 @@
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="ConferencesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeadlineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,7 +160,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
