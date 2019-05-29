@@ -16,11 +16,21 @@ namespace ConferenceManagementSystem.Controller
     {
         public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)
         {
+            /*
+             * adds a conference
+             * pre: conference name (string), conference address (string), conference date (string)
+             * post: 
+             */
             throw new NotImplementedException();
         }
 
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID)
         {
+            /*
+             * adds a new paper in the DB
+             * pre: paper name (string), topic (string), the path in the disc of the paper (string), the content on the disc of the abstract (string), the id of the section for the paper (integer), the author id (integer)
+             * post: the paper is added to the AuthorPapers table and Papers table
+             */
             List<String> pid;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -42,6 +52,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updateListener(int id, string firstName, string lastName)
         {
+            /*
+             * updates the data of a registered listener
+             * pre: listener id(int), first name (string), last name (string)
+             * post: the listener with the ID = id is updated in the DB
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='"+firstName+"',LastName='"+lastName+"' WHERE ID="+id;
@@ -52,6 +67,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updateAuthor(int id, string firstName, string lastName, string affiliation)
         {
+            /*
+             * updates the data of an author
+             * pre: author id (int), first name (string), last name (string), affiliation (string)
+             * post: the author with the ID=id is updated int the 
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
