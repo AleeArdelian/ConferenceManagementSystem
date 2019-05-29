@@ -38,6 +38,7 @@ namespace ConferenceManagementSystem
             }
             if (user.RoleID == 1)
                 this.reviewsItem.Visibility = Visibility.Collapsed;
+                
         }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -67,7 +68,7 @@ namespace ConferenceManagementSystem
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-   
+            contentFrame.Content = new ReviewPage(controller, user);
         }
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)

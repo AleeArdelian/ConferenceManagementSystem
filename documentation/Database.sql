@@ -105,7 +105,6 @@ create table Reviews(
 	ReviewerID int,
 	Qualifier varchar(20),
 	Comments varchar(200),
-	ReevalRequest bit,
 	constraint FK_Reviews_Papers foreign key(PaperID) references Papers(ID),
 	constraint FK_Reviews_PCMembers foreign key(ReviewerID) references PCMembers(ID)
 )
@@ -131,15 +130,26 @@ create table AuthorPapers(
 	constraint FK_AuthorPapers_Papers foreign key(PaperID) references Papers(ID)
 )
 
-INSERT INTO Roles(RoleName) VALUES ('Author', 'Chair', 'Co-Chair', 'Regular', 'Listener')
+
+
 
 /*
 INSERT INTO Roles VALUES ('Author'), ('Chair'), ('Co-Chair'), ('Regular'), ('Listener')
 INSERT INTO ChosenPC VALUES ('chair.com', 2), ('co-chair.com', 3),('regular.com', 4)
 insert into Conferences values ('Future', 'Avram Iancu street','12/05/2019'),('Politics','Kogalniceanu street 2/I','12/20/2019')
-insert into Sections values ('Wars',302,'11/29/2019',3,2)
+insert into Sections values ('Voting', 411, '08/01/2019',3,1),('Wars',302,'11/29/2019',3,2)
 select * from Users
 select * from PCMembers
 select * from ChosenPC
-
 */
+
+alter table Reviews
+drop column ReevalRequest
+
+select * from Authors
+select * from AuthorPapers
+select * from Papers
+
+delete from Papers where ID >1
+
+
