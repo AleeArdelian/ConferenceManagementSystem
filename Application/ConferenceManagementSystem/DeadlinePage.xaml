@@ -19,7 +19,7 @@
             </ListView.View>
         </ListView>
         <DatePicker x:Name="dateDeadline" HorizontalAlignment="Left" Margin="410,36,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="submitButton" Content="Change Deadline" HorizontalAlignment="Left" Margin="410,153,0,0" VerticalAlignment="Top" Width="102" Click="submitButton_Click"/>
+        <Button x:Name="submitButton" Content="Change Deadline" HorizontalAlignment="Left" Margin="409,127,0,0" VerticalAlignment="Top" Width="102" Click="submitButton_Click"/>
 
     </Grid>
 </Page>
