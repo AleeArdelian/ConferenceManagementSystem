@@ -133,5 +133,25 @@ namespace ConferenceManagementSystem
 
             }
         }
+
+        private void BtnViewPaper_Click(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.ContentLoc);
+                viewer.ShowDialog();
+            }
+        }
+
+        private void BtnViewAbstract_Click(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.AbstractLoc);
+                viewer.ShowDialog();
+            }
+        }
     }
 }
