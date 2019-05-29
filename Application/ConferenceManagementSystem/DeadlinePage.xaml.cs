@@ -26,12 +26,16 @@ namespace ConferenceManagementSystem {
         public List<Domain.Section> sections { get; set; }
         Domain.Section section;
 
-        public DeadlinePage(CMSController controller, User user) {
+        public DeadlinePage(CMSController controller, User user, Boolean canModify) {
             this.controller = controller;
             this.user = user;
             InitializeComponent();
             sections = controller.getSections();
             DataContext = this;
+            if (!canModify) {
+                dateDeadline.Visibility = Visibility.Hidden;
+                submitButton.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
