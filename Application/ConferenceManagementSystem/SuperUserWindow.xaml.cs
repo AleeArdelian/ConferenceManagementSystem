@@ -37,7 +37,12 @@ namespace ConferenceManagementSystem
         {
             this.Close();
         }
-        
+
+        public Conference getConference()
+        {
+            return this.selectedConference;
+        }
+
         public void setConference(Conference conf)
         {
             this.selectedConference = conf;
@@ -56,7 +61,7 @@ namespace ConferenceManagementSystem
 
         private void SectionsItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ProgCommPage(controller, user);
+            contentFrame.Content = new SectionsPage(this, controller, user);
         }
 
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)

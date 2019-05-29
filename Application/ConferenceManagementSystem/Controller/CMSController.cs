@@ -171,6 +171,17 @@ namespace ConferenceManagementSystem.Controller
 
         }
 
+        public List<Section> getSections(int confId)
+        {
+            List<Section> section;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                section = db.Query<Section>("SELECT * FROM Sections WHERE ConferenceID = " + confId.ToString()).ToList();
+                return section;
+            }
+
+        }
+
         public List<Section> getSections() {
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {

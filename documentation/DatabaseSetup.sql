@@ -49,3 +49,6 @@ SELECT * FROM Users
 INSERT INTO PCMembers VALUES
 	(2, 'aff', 'web', 0)
 SELECT * FROM PCMembers
+
+SELECT email, RoleName from ChosenPC C INNER JOIN Roles R ON C.RoleID = R.ID 
+SELECT * FROM Sections

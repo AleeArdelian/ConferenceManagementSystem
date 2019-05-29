@@ -23,7 +23,10 @@
         <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="54,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="Room:" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="roomTextBox" HorizontalAlignment="Left" Height="23" Margin="54,196,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DatePicker x:Name="confDate" HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top"/>
         <Label Content="Chair:" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="chairTextBox" HorizontalAlignment="Left" Height="23" Margin="54,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="202,168,0,0" VerticalAlignment="Top" Width="75" Height="19"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="295,168,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
