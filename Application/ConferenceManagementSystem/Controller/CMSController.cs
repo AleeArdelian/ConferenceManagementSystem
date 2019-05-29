@@ -114,6 +114,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void addChosen(string email, string role)
         {
+            /*
+             * adds a new chosen PC Member in the ChosenPC table
+             * pre: email (string), role (string)
+             * post: -
+             */
             int roleId = getRoleId(role);
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
