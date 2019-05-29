@@ -33,6 +33,7 @@ namespace ConferenceManagementSystem
             this.controller = con;
             this.user = u;
             InitializeComponent();
+            DataContext = this;
             loadPapers();
         }
 
