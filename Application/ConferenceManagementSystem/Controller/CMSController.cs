@@ -168,6 +168,11 @@ namespace ConferenceManagementSystem.Controller
         }
 
         public List<Section> getSections() {
+            /*
+             * gets all the sections from the DB
+             * pre: -
+             * post: returns a list with all the sections
+             */
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
                 sections = db.Query<Section>("SELECT * FROM Sections").ToList();
