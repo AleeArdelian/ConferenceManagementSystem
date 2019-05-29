@@ -88,6 +88,9 @@
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SuperUserWindow.xaml.cs">
+      <DependentUpon>SuperUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserMainWindow.xaml.cs">
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SuperUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

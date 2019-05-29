@@ -1,13 +1,45 @@
-create database SuperDuperISSDataBase
+/*
+		This query is used to create the database for our application.
+		Note that there is another query for the insertion of some basic accounts
+	to simulate the use of the app.
+	
+		No. of tabels: 14
 
+*/
+
+create database SuperDuperISSDataBase
 use SuperDuperISSDataBase
 
+/*
+		Roles
+
+	1. Author
+	2. Chair
+	3. Co-Chair
+	4. Regular
+	5. Listener
+	6. SteeringCommittee
+	
+*/
 create table Roles(
 	ID int identity(1,1),
 	RoleName varchar(30)
 	constraint PK_Roles_ID primary key(ID)
 )
 
+/*
+	Some accounts for testing the app
+
+    username	password	role
+--------------+-----------+------------
+	admin		admin		SteeringCommittee
+	alex		test		Co-Chair
+	ale			test		Chair
+	cris		test		Author
+	cata		test		Listener
+	dia			test		Regular
+---------------------------------------
+*/
 create table Users(
 	ID int identity(1,1),
 	FirstName varchar(30),
