@@ -19,9 +19,10 @@ namespace ConferenceManagementSystem.Controller
             throw new NotImplementedException();
         }
 
-        public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID)
+        public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID, int RoleID)
         {
             List<String> pid;
+            List<String> affiliations;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
@@ -30,10 +31,16 @@ namespace ConferenceManagementSystem.Controller
                     String query = "INSERT INTO Papers(ContentLoc,AbstractLoc,Topic,PaperName,SectionID,isAccepted) VALUES ('" + ContentLoc + "','" + AbstractLoc + "','" + Topic + "','" + PaperName + "'," + SectionID + ",0)";
                     db.Execute(query);
                     pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
-                    if (AuthorID == 4)
-                        String query1 = "INSERT INTO Authors(ID,Affiliation) VALUES (" + AuthorID + "," +  + ")";
-
                     int pidd = Int32.Parse(pid[0]);
+
+                    if (RoleID == 4)
+                    {
+                        affiliations = db.Query<String>( "SELECT Affiliation from Authors WHERE ID=" + AuthorID).ToList();
+                        if (affiliations.Count == 0)
+                        {
+                            String query4 = "INSERT INTO Authors(ID,Affiliation) VALUES (" + AuthorID + ",'" + aff + "')";
+                        }
+                    }
                     String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
                     db.Execute(query1);
                 }
