@@ -100,3 +100,14 @@ create table AuthorPapers(
 )
 
 INSERT INTO Roles(RoleName) VALUES ('Author', 'Chair', 'Co-Chair', 'Regular', 'Listener')
+
+/*
+INSERT INTO Roles VALUES ('Author'), ('Chair'), ('Co-Chair'), ('Regular'), ('Listener')
+INSERT INTO ChosenPC VALUES ('chair.com', 2), ('co-chair.com', 3),('regular.com', 4)
+insert into Conferences values ('Future', 'Avram Iancu street','12/05/2019'),('Politics','Kogalniceanu street 2/I','12/20/2019')
+insert into Sections values ('Wars',302,'11/29/2019',3,2)
+select * from Users
+select * from PCMembers
+select * from ChosenPC
+
+*/
