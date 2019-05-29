@@ -26,9 +26,13 @@ namespace ConferenceManagementSystem.Controller
             {
                 try
                 {
+                    string aff = "regular Member";
                     String query = "INSERT INTO Papers(ContentLoc,AbstractLoc,Topic,PaperName,SectionID,isAccepted) VALUES ('" + ContentLoc + "','" + AbstractLoc + "','" + Topic + "','" + PaperName + "'," + SectionID + ",0)";
                     db.Execute(query);
                     pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
+                    if (AuthorID == 4)
+                        String query1 = "INSERT INTO Authors(ID,Affiliation) VALUES (" + AuthorID + "," +  + ")";
+
                     int pidd = Int32.Parse(pid[0]);
                     String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
                     db.Execute(query1);
