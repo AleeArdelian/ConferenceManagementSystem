@@ -39,6 +39,7 @@ namespace ConferenceManagementSystem.Controller
                         if (affiliations.Count == 0)
                         {
                             String query4 = "INSERT INTO Authors(ID,Affiliation) VALUES (" + AuthorID + ",'" + aff + "')";
+                            db.Execute(query4);
                         }
                     }
                     String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
