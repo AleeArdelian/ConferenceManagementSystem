@@ -73,7 +73,6 @@ create table Reviews(
 	ReviewerID int,
 	Qualifier varchar(20),
 	Comments varchar(200),
-	ReevalRequest bit,
 	constraint FK_Reviews_Papers foreign key(PaperID) references Papers(ID),
 	constraint FK_Reviews_PCMembers foreign key(ReviewerID) references PCMembers(ID)
 )
@@ -112,7 +111,8 @@ select * from PCMembers
 select * from ChosenPC
 */
 
-
+alter table Reviews
+drop column ReevalRequest
 
 select * from Authors
 select * from AuthorPapers

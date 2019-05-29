@@ -68,7 +68,7 @@ namespace ConferenceManagementSystem
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-   
+            contentFrame.Content = new ReviewPage(controller, user);
         }
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
