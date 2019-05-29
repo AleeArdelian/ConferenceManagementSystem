@@ -16,6 +16,12 @@ namespace ConferenceManagementSystem.Controller
     {
         public void addSection(string name, string room, DateTime date, int confId, int chairId)
         {
+            /*
+             * adds a section in the Sections table
+             * pre: conference name (string), room (string), date (DateTime), conference id (integer), chair id (integer)
+             * post: -
+             */
+
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
@@ -32,6 +38,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void deleteSection(int id)
         {
+            /*
+             * deletes the section with a given id from the Sections table
+             * pre: section id (integer)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "DELETE FROM Sections WHERE ID = " + id.ToString();
@@ -41,6 +52,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void addReview(int paperId, int reviewerId, string qualifier, string comments)
         {
+            /*
+             * adds a new review in the Reviews table
+             * pre: the paper id (integer), the reviewer id (integer), the qualifier (string), the comments (string)
+             * post: throws an exception if the given paper already has the maximum number of reviews (4)
+             */
             List<String> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -57,6 +73,11 @@ namespace ConferenceManagementSystem.Controller
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
         {
+            /*
+             * adds a new conference in the Conferences table
+             * pre: conference name (string), conference address (string), conference date (DateTime)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
@@ -73,6 +94,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<ChosenPcMember> getChosen()
         {
+            /*
+             * gets all the chosen PC Members from the ChosenPCMembers table
+             * pre: -
+             * post: a list with all the chosen PC Members
+             */
             List<ChosenPcMember> pcs;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -83,6 +109,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void addChosen(string email, string role)
         {
+            /*
+             * adds a new chosen PC Member in the ChosenPC table
+             * pre: email (string), role (string)
+             * post: -
+             */
             int roleId = getRoleId(role);
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -93,6 +124,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void deleteChosen(string email)
         {
+            /*
+            deletes a chosen PC Member from the ChosenPC table
+            pre: email (string)
+            post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "DELETE FROM ChosenPC WHERE Email = '" + email + "'";
@@ -102,6 +138,11 @@ namespace ConferenceManagementSystem.Controller
 
         private int getRoleId(string role)
         {
+            /*
+             * gets the id of the given role from the Roles table
+             * pre: role (string)
+             * post: the role id (integer)
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 int roleId = db.QueryFirst<int>("SELECT ID from Roles WHERE RoleName = '" + role + "'");
@@ -111,6 +152,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID, int RoleID)
         {
+            /*
+             * adds a new paper in the Papers and AuthorPapers tables
+             * pre: paper name (string), topic (string), the path in the disc of the paper (string), the content on the disc of the abstract (string), the id of the section for the paper (integer), the author id (integer)
+             * post: -
+             */
             List<String> pid;
             List<String> affiliations;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -144,6 +190,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updateListener(int id, string firstName, string lastName)
         {
+            /*
+             * updates the listener with the given id in the Users table
+             * pre: listener id(int), first name (string), last name (string)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='"+firstName+"',LastName='"+lastName+"' WHERE ID="+id;
@@ -154,6 +205,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updateAuthor(int id, string firstName, string lastName, string affiliation)
         {
+            /*
+             * updates the author with the given id in the Authors and Users tables
+             * pre: author id (int), first name (string), last name (string), affiliation (string)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
@@ -165,6 +221,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updatePCMember(int id, string firstName, string lastName, string affiliation, string website)
         {
+            /*
+             * updates the PC Member with the given id in the Users and PcMembers tables
+             * pre: PC Memeber id (integer), first name (string), last name (string), affiliation (string), website (string)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
@@ -176,6 +237,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void attendConference(Conference conference, User user)
         {
+            /*
+             * adds the user id and the conference id in the ConferenceUser table 
+             * pre: conference and user
+             * post: throws an exception if the user is already marked as attending the given conference
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
@@ -194,6 +260,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Paper> getPapers()
         {
+            /*
+             * gets all the papers from the DB
+             * pre: -
+             * post: returns a list with all the papers
+             */
             List<Paper> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -205,6 +276,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Paper> getPapersOfSection(Section section)
         {
+            /*
+             * gets all the papers from a given section from the DB
+             * pre: a section (Section)
+             * post: returns a list with all the papers from the given section
+             */
             List<Paper> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -215,6 +291,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Conference> getConferences()
         {
+            /*
+             * get all the conferences from the DB
+             * pre: -
+             * post: returns a list with all the conferences
+             */
             List<Conference> conferences;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -226,6 +307,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Section> getSections(int confId)
         {
+            /*
+             * gets all the sections with the given conference id from the Sections table
+             * pre: conference id (integer)
+             * post: a list with all the sections from the conference
+             */
             List<Section> section;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -236,6 +322,11 @@ namespace ConferenceManagementSystem.Controller
         }
 
         public List<Section> getSections() {
+            /*
+             * gets all the sections from the DB
+             * pre: -
+             * post: returns a list with all the sections
+             */
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
                 sections = db.Query<Section>("SELECT * FROM Sections").ToList();
@@ -244,6 +335,11 @@ namespace ConferenceManagementSystem.Controller
         }
 
         public void updateSectionDeadline(int id, DateTime newDate) {
+            /*
+             * updates the PaperDeadline field for the sections with the given id from the table Sections
+             * pre: the section id (int) and the new deadline (DateTime)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
                 String query = "UPDATE Sections SET PaperDeadline='" + newDate + "' WHERE ID=" + id;
                 db.Execute(query);
@@ -252,6 +348,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Section> getSectionsOfConference(Conference conference)
         {
+            /*
+             * gets all the sections from a given conference
+             * pre: a conference (Conference)
+             * post: a list with all the sections 
+             */
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -262,6 +363,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Conference> getMyConferences(User user)
         {
+            /*
+             * gets all the conferences which a given user participates in
+             * pre: a user (User)
+             * post: a list with all the conferences
+             */
             List<Conference> conferences;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -272,6 +378,11 @@ namespace ConferenceManagementSystem.Controller
 
         public User LogIN(string username, string password)
         {
+            /*
+             * gets the user with the given username and password, and returns the user based on the type it has
+             * pre: the username (string) and the password(string) of the user
+             * post: the user, if the id is found, or throws an exception otherwise
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 User user = null;
@@ -294,6 +405,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerListener(string username, string passwd, string fname, string lname, string email)
         {
+            /*
+             * adds a new Listener in the Users table
+             * pre: user username (string), password (string), first name (string), last name (string), email (string)
+             * post: throws an exception if the username or the email are already used
+             */
             List<String> res;
             List<String> res1;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -312,6 +428,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerAuthor(string username, string passwd, string fname, string lname, string email, string affiliation)
         {
+            /*
+             * adds a new author in the Users and Authors tables
+             * pre: authors' username (string), password (string), first name (string), last name (string), email (string) and affiliation (string)
+             * post: throws an exception if the username or the email are already used
+             */
             List<String> res;
             List<String> res1;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -351,6 +472,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerPCMember(string username, string passwd, string fname, string lname, string email, string affiliation, string website)
         {
+            /*
+             * adds a new PCMember to the Users and the PCMembers tables
+             * pre: username (string), password (string), first name (string), last name (string), email (string), affiliation (string), website(string)
+             * post: throws exception if the username or email are already used, or if the user does not have the right to register as a PCMember
+             */
             List<String> res;
             List<String> res1;
             List<String> res2;
