@@ -17,9 +17,9 @@ namespace ConferenceManagementSystem.Controller
         public void addSection(string name, string room, DateTime date, int confId, int chairId)
         {
             /*
-             * adds a conference
-             * pre: conference name (string), conference address (string), conference date (string)
-             * post: 
+             * adds a section in the Sections table
+             * pre: conference name (string), room (string), date (DateTime), conference id (integer), chair id (integer)
+             * post: -
              */
 
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -38,6 +38,7 @@ namespace ConferenceManagementSystem.Controller
 
         public void deleteSection(int id)
         {
+            
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "DELETE FROM Sections WHERE ID = " + id.ToString();
