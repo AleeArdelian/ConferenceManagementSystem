@@ -80,8 +80,11 @@ namespace ConferenceManagementSystem
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
         {
-
-            contentFrame.Content = new DeadlinePage(controller, user);
+                if (user.RoleID == 2 || user.RoleID == 3) {//is chair or co-chair
+                    contentFrame.Content = new DeadlinePage(controller, user, true);
+                } else {
+                    contentFrame.Content = new DeadlinePage(controller, user, false);
+                }
         }
     }
 }
