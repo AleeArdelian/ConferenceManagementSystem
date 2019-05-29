@@ -129,6 +129,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void deleteChosen(string email)
         {
+            /*
+            deletes a chosen PC Member from the ChosenPC table
+            pre: email (string)
+            post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "DELETE FROM ChosenPC WHERE Email = '" + email + "'";
