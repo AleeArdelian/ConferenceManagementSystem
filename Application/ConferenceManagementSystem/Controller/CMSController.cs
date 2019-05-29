@@ -182,9 +182,9 @@ namespace ConferenceManagementSystem.Controller
 
         public void updateSectionDeadline(int id, DateTime newDate) {
             /*
-             * updates the deadline from a given section
+             * updates the PaperDeadline field for the sections with the given id from the table Sections
              * pre: the section id (int) and the new deadline (DateTime)
-             * post: the PaperDeadline field for the sections with the given id in the table Sections is updated
+             * post: -
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
                 String query = "UPDATE Sections SET PaperDeadline='" + newDate + "' WHERE ID=" + id;
@@ -194,6 +194,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Section> getSectionsOfConference(Conference conference)
         {
+            /*
+             * gets all the sections from a given conference
+             * pre: a conference (Conference)
+             * post: a list with all the sections 
+             */
             List<Section> sections;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
