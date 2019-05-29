@@ -164,6 +164,7 @@ namespace ConferenceManagementSystem.Controller
                 User user = null;
                 user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + password + "'");
 
+ 
                 if (user.RoleID == 1)
                 {
                     Author author = db.QueryFirst<Author>("SELECT U.ID, FirstName, LastName, RoleID, email, Username, Passwd, Affiliation FROM Users U INNER JOIN Authors A on U.ID=A.ID WHERE Username='" + username + "' AND Passwd='" + password + "'");
