@@ -81,7 +81,7 @@ namespace ConferenceManagementSystem
                 {
                     if (paperNameTextBox.Text != "" && topicTextBox.Text != "" && paperLocationTextBox.Text != "" && abstractLocationTextBox.Text != "")
                     {
-                        controller.addPaper(paperNameTextBox.Text, topicTextBox.Text, paperLocationTextBox.Text, abstractLocationTextBox.Text, section.ID, user.ID, user.RoleID)
+                        controller.addPaper(paperNameTextBox.Text, topicTextBox.Text, paperLocationTextBox.Text, abstractLocationTextBox.Text, section.ID, user.ID, user.RoleID);
                         MessageBox.Show("Success!");
                     }
                     else
