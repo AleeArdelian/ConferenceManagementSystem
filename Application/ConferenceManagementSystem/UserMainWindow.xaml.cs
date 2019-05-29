@@ -72,6 +72,12 @@ namespace ConferenceManagementSystem
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
         {
+            if (user.RoleID == 5)
+                MessageBox.Show("You don't have the right to acces this page");
+            else
+            {
+                contentFrame.Content = new DeadlinePage(controller, user);
+            }
 
         }
     }

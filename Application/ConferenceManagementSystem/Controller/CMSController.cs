@@ -112,6 +112,21 @@ namespace ConferenceManagementSystem.Controller
 
         }
 
+        public List<Section> getSections() {
+            List<Section> sections;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
+                sections = db.Query<Section>("SELECT * FROM Sections").ToList();
+                return sections;
+            }
+        }
+
+        public void updateSectionDeadline(int id, DateTime newDate) {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString)) {
+                String query = "UPDATE Sections SET PaperDeadline='" + newDate + "' WHERE ID=" + id;
+                db.Execute(query);
+            }
+        }
+
         public List<Section> getSectionsOfConference(Conference conference)
         {
             List<Section> sections;
