@@ -70,7 +70,7 @@ namespace ConferenceManagementSystem.Controller
             /*
              * updates the data of an author
              * pre: author id (int), first name (string), last name (string), affiliation (string)
-             * post: the author with the ID=id is updated int the 
+             * post: the author with the ID=id is updated in the tables Authors and Users
              */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -83,6 +83,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void updatePCMember(int id, string firstName, string lastName, string affiliation, string website)
         {
+            /*
+             * updates the data of a PC Member
+             * pre: PC Memeber id (integer), first name (string), last name (string), affiliation (string), website (string)
+             * post: the PC Member with the ID=id is updated in the Users and the PCMembers tables
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "UPDATE Users SET FirstName='" + firstName + "',LastName='" + lastName + "' WHERE ID=" + id;
