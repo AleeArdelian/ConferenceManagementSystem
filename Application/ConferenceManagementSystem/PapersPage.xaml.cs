@@ -94,9 +94,12 @@ namespace ConferenceManagementSystem
 
         private void SectionsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Section section = (Section)sectionsListView.SelectedItems[0];
-            papers = controller.getPapersOfSection(section);
-            papersListView.ItemsSource = papers;
+            if (sectionsListView.SelectedItems.Count > 0)
+            {
+                Section section = (Section)sectionsListView.SelectedItems[0];
+                papers = controller.getPapersOfSection(section);
+                papersListView.ItemsSource = papers;
+            }
         }
 
         private void BtnBroeseAbstract_Click(object sender, RoutedEventArgs e)
