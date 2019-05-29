@@ -224,6 +224,11 @@ namespace ConferenceManagementSystem.Controller
 
         public User LogIN(string username, string password)
         {
+            /*
+             * gets the user with the given username and password, and returns the user based on the type it has
+             * pre: the username (string) and the password(string) of the user
+             * post: the user, if the id is found, or throws an exception otherwise
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 User user = null;
