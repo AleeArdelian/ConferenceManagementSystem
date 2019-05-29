@@ -44,6 +44,8 @@ namespace ConferenceManagementSystem
             {
                 papersLabel.Visibility = Visibility.Hidden;
                 papersListView.Visibility = Visibility.Hidden;
+                btnViewAbstract.Visibility = Visibility.Hidden;
+                btnViewPaper.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -142,6 +144,10 @@ namespace ConferenceManagementSystem
                 PDFViewer viewer = new PDFViewer(paper.ContentLoc);
                 viewer.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
+            }
         }
 
         private void BtnViewAbstract_Click(object sender, RoutedEventArgs e)
@@ -151,6 +157,10 @@ namespace ConferenceManagementSystem
                 Paper paper = (Paper)papersListView.SelectedItems[0];
                 PDFViewer viewer = new PDFViewer(paper.AbstractLoc);
                 viewer.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
             }
         }
     }
