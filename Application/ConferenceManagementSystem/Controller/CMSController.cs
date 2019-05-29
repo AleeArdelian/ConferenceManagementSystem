@@ -256,6 +256,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerListener(string username, string passwd, string fname, string lname, string email)
         {
+            /*
+             * adds a new Listener in the Users table
+             * pre: user username (string), password (string), first name (string), last name (string), email (string)
+             * post: throws an exception if the username or the email are already used
+             */
             List<String> res;
             List<String> res1;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -274,6 +279,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerAuthor(string username, string passwd, string fname, string lname, string email, string affiliation)
         {
+            /*
+             * adds a new author in the Users and Authors tables
+             * pre: authors' username (string), password (string), first name (string), last name (string), email (string) and affiliation (string)
+             * post: throws an exception if the username or the email are already used
+             */
             List<String> res;
             List<String> res1;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
@@ -295,6 +305,9 @@ namespace ConferenceManagementSystem.Controller
 
         public void registerPCMember(string username, string passwd, string fname, string lname, string email, string affiliation, string website)
         {
+            /*
+             * 
+             */
             List<String> res;
             List<String> res1;
             List<String> res2;
