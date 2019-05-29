@@ -22,12 +22,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Name="sectionsListView" HorizontalAlignment="Left" Height="100" Margin="258,41,0,0" VerticalAlignment="Top" Width="285" ItemsSource="{Binding sections}" >
+        <ListView Name="sectionsListView" HorizontalAlignment="Left" Height="100" Margin="258,41,0,0" VerticalAlignment="Top" Width="185" ItemsSource="{Binding sections}" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding SectionName}" Header="Name" Width="100"/>
                     <GridViewColumn DisplayMemberBinding="{Binding RoomName}" Header="Room" Width="80"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding PaperDeadline}" Header="Deadline" Width="100"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -40,8 +39,8 @@
         <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
         <Button Content="Submit" HorizontalAlignment="Left" Margin="151,282,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
-        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="608,10,0,0" VerticalAlignment="Top"/>
-        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="571,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}" Grid.ColumnSpan="2">
+        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="494,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="494,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
@@ -49,7 +48,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="changeDeadButton" Content="Change deadline" HorizontalAlignment="Left" Margin="446,154,0,0" VerticalAlignment="Top" Width="97" Height="30" Click="Button_Click_1"/>
-
     </Grid>
 </Page>
