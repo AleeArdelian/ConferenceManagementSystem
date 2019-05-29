@@ -101,6 +101,16 @@ namespace ConferenceManagementSystem.Controller
             
         }
 
+        public List<Paper> getPapersOfSection(Section section)
+        {
+            List<Paper> papers;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                papers = db.Query<Paper>("SELECT * FROM Papers WHERE SectionID="+section.ID).ToList();
+                return papers;
+            }
+        }
+
         public List<Conference> getConferences()
         {
             List<Conference> conferences;

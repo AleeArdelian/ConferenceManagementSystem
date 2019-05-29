@@ -100,6 +100,7 @@ create table AuthorPapers(
 )
 
 
+
 /*
 INSERT INTO Roles VALUES ('Author'), ('Chair'), ('Co-Chair'), ('Regular'), ('Listener')
 INSERT INTO ChosenPC VALUES ('chair.com', 2), ('co-chair.com', 3),('regular.com', 4)
@@ -110,5 +111,7 @@ select * from PCMembers
 select * from ChosenPC
 
 */
+
 select * from Sections
+
 

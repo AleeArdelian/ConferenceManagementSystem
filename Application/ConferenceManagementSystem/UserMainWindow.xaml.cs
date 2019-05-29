@@ -73,7 +73,8 @@ namespace ConferenceManagementSystem
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
         {
-                contentFrame.Content = new DeadlinePage(controller, user);
+
+            contentFrame.Content = new DeadlinePage(controller, user);
         }
     }
 }
