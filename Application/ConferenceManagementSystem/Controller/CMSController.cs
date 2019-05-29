@@ -20,7 +20,7 @@ namespace ConferenceManagementSystem.Controller
             {
                 try
                 {
-                    String query = "INSERT INTO Sections VALUES ('" + name + "','" + room + "'," + date.Date + "," + confId + "," + chairId + ")";
+                    String query = "INSERT INTO Sections VALUES ('" + name + "', '" + room + "', '" + date + "', " +confId + ", " + chairId + ")";
                     db.Execute(query);
                 }
                 catch (Exception ex)
