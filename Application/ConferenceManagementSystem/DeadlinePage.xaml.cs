@@ -32,6 +32,11 @@ namespace ConferenceManagementSystem {
             InitializeComponent();
             sections = controller.getSections();
             DataContext = this;
+            if(user.RoleID == 1 || user.RoleID == 4)
+            {
+                this.submitButton.Visibility = Visibility.Collapsed;
+                this.dateDeadline.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {

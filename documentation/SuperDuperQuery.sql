@@ -99,7 +99,7 @@ create table AuthorPapers(
 	constraint FK_AuthorPapers_Papers foreign key(PaperID) references Papers(ID)
 )
 
-INSERT INTO Roles(RoleName) VALUES ('Author', 'Chair', 'Co-Chair', 'Regular', 'Listener')
+
 
 /*
 INSERT INTO Roles VALUES ('Author'), ('Chair'), ('Co-Chair'), ('Regular'), ('Listener')
@@ -111,3 +111,7 @@ select * from PCMembers
 select * from ChosenPC
 
 */
+
+select * from Sections
+
+

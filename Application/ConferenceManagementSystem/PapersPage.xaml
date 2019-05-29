@@ -8,10 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PapersPage">
 
-    <Grid>
+    <Grid Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Conferences" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sections" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top"/>
-        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="100" Margin="10,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding conferences}" SelectionChanged="ListView_SelectionChanged">
+        <Label Content="Sections" HorizontalAlignment="Left" Margin="258,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="100" Margin="36,41,0,0" VerticalAlignment="Top" Width="190" ItemsSource="{Binding conferences}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="180"/>
@@ -26,17 +30,17 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Paper Name" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top"/>
-        <Label Content="Topic" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top"/>
-        <Label Content="Paper location" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top"/>
-        <Label Content="Abstract location" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="paperNameTextBox" HorizontalAlignment="Left" Height="23" Margin="132,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="132,174,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="132,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Margin="132,258,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
-        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="436,10,0,0" VerticalAlignment="Top"/>
-        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="436,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}">
+        <Label Content="Paper Name" HorizontalAlignment="Left" Margin="29,170,0,0" VerticalAlignment="Top"/>
+        <Label Content="Topic" HorizontalAlignment="Left" Margin="29,198,0,0" VerticalAlignment="Top"/>
+        <Label Content="Paper location" HorizontalAlignment="Left" Margin="29,224,0,0" VerticalAlignment="Top"/>
+        <Label Content="Abstract location" HorizontalAlignment="Left" Margin="29,254,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="paperNameTextBox" HorizontalAlignment="Left" Height="23" Margin="151,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="topicTextBox" HorizontalAlignment="Left" Height="23" Margin="151,198,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="paperLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,226,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <TextBox Name="abstractLocationTextBox" HorizontalAlignment="Left" Height="23" Margin="151,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Margin="151,282,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
+        <Label Name="papersLabel" Content="Papers" HorizontalAlignment="Left" Margin="494,10,0,0" VerticalAlignment="Top"/>
+        <ListView Name="papersListView" HorizontalAlignment="Left" Height="212" Margin="494,41,0,0" VerticalAlignment="Top" Width="168" ItemsSource="{Binding papers}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
@@ -44,9 +48,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="284,202,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click"/>
-        <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="284,231,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click"/>
-        <Button Name="btnViewPaper" Content="View paper" HorizontalAlignment="Left" Margin="436,258,0,0" VerticalAlignment="Top" Width="75" Click="BtnViewPaper_Click"/>
-        <Button Name="btnViewAbstract" Content="Wiev abstract" HorizontalAlignment="Left" Margin="524,258,0,0" VerticalAlignment="Top" Width="80" Click="BtnViewAbstract_Click"/>
+        <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="314,226,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click"/>
+        <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="314,254,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click"/>
+        <Button Name="btnViewPaper" Content="View paper" HorizontalAlignment="Left" Margin="494,265,0,0" VerticalAlignment="Top" Width="75" Click="BtnViewPaper_Click"/>
+        <Button Name="btnViewAbstract" Content="Wiev abstract" HorizontalAlignment="Left" Margin="582,263,0,0" VerticalAlignment="Top" Width="80" Click="BtnViewAbstract_Click"/>
     </Grid>
 </Page>
