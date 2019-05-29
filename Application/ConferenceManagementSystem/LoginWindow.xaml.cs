@@ -43,11 +43,22 @@ namespace ConferenceManagementSystem
             try
             {
                 User user = controller.LogIN(username, passwd);
-                UserMainWindow userMainwWin = new UserMainWindow(controller, user);
-                this.Hide();
-                userMainwWin.ShowDialog();
-                this.Show();
-            }
+                if (user.RoleID == 6)
+                {
+                    SuperUserWindow SuperUserWin = new SuperUserWindow(controller, user);
+                    this.Hide();
+                    SuperUserWin.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    UserMainWindow userMainWin = new UserMainWindow(controller, user);
+                    this.Hide();
+                    userMainWin.ShowDialog();
+                    this.Show();
+                }
+
+                }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

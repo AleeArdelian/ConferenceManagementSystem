@@ -33,8 +33,7 @@ namespace ConferenceManagementSystem {
             sections = controller.getSections();
             DataContext = this;
 
-            if (!canModify)
-            {
+            if (!canModify) {
                 dateDeadline.Visibility = Visibility.Hidden;
                 submitButton.Visibility = Visibility.Hidden;
             }

@@ -14,7 +14,6 @@ namespace ConferenceManagementSystem.Controller
 {
     public class CMSController
     {
-
         public void addReview(int paperId, int reviewerId, string qualifier, string comments)
         {
             List<String> papers;
@@ -32,7 +31,56 @@ namespace ConferenceManagementSystem.Controller
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                try
+                {
+                    String query = "INSERT INTO Conferences VALUES ('" + ConferenceName + "','" + ConferenceAddress + "','" + ConferenceDate + "')";
+                    db.Execute(query);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+        public List<ChosenPcMember> getChosen()
+        {
+            List<ChosenPcMember> pcs;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                pcs = db.Query<ChosenPcMember>("SELECT email, RoleName from ChosenPC C INNER JOIN Roles R ON C.RoleID = R.ID ").ToList();
+                return pcs;
+            }
+        }
+
+        public void addChosen(string email, string role)
+        {
+            int roleId = getRoleId(role);
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "INSERT INTO ChosenPC VALUES ('" + email + "'," + roleId + ")";
+                db.Execute(query);
+            }
+        }
+
+        public void deleteChosen(string email)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                String query = "DELETE FROM ChosenPC WHERE Email = '" + email + "'";
+                db.Execute(query);
+            }
+        }
+
+        private int getRoleId(string role)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                int roleId = db.QueryFirst<int>("SELECT ID from Roles WHERE RoleName = '" + role + "'");
+                return roleId;
+            }
         }
 
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID, int RoleID)
@@ -146,6 +194,17 @@ namespace ConferenceManagementSystem.Controller
             {
                 conferences = db.Query<Conference>("SELECT * FROM Conferences").ToList();
                 return conferences;
+            }
+
+        }
+
+        public List<Section> getSections(int confId)
+        {
+            List<Section> section;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                section = db.Query<Section>("SELECT * FROM Sections WHERE ConferenceID = " + confId.ToString()).ToList();
+                return section;
             }
 
         }
