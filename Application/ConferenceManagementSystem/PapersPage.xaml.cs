@@ -81,8 +81,17 @@ namespace ConferenceManagementSystem
                 {
                     if (paperNameTextBox.Text != "" && topicTextBox.Text != "" && paperLocationTextBox.Text != "" && abstractLocationTextBox.Text != "")
                     {
-                        controller.addPaper(paperNameTextBox.Text, topicTextBox.Text, paperLocationTextBox.Text, abstractLocationTextBox.Text, section.ID, user.ID, user.RoleID);
-                        MessageBox.Show("Success!");
+                        DateTime dl = DateTime.Parse(section.PaperDeadline);
+                        DateTime date = DateTime.Now;
+                        if (dl > date)
+                        {
+                            controller.addPaper(paperNameTextBox.Text, topicTextBox.Text, paperLocationTextBox.Text, abstractLocationTextBox.Text, section.ID, user.ID, user.RoleID);
+                            MessageBox.Show("Success!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Deadline passed!");
+                        }
                     }
                     else
                     {
