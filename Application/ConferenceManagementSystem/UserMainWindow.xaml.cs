@@ -68,13 +68,21 @@ namespace ConferenceManagementSystem
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-   
+            contentFrame.Content = new ReviewPage(controller, user);
         }
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)
         {
-
-            contentFrame.Content = new DeadlinePage(controller, user);
+            if (user.RoleID == 5)
+                MessageBox.Show("You don't have the right to acces this page");
+            else
+            {
+                if (user.RoleID == 2 || user.RoleID == 3) {//is chair or co-chair
+                    contentFrame.Content = new DeadlinePage(controller, user, true);
+                } else {
+                    contentFrame.Content = new DeadlinePage(controller, user, false);
+                }
+            }
         }
     }
 }

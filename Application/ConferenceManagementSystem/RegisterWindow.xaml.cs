@@ -58,15 +58,6 @@ namespace ConferenceManagementSystem
             {
                 controller.registerPCMember(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text, websiteTextBox.Text);
                 MessageBox.Show("Register succesfull!");
-                /*try
-                {
-                    controller.registerPCMember(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text, websiteTextBox.Text);
-                    MessageBox.Show("Register succesfull!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }*/
             }
             this.Close();
         }

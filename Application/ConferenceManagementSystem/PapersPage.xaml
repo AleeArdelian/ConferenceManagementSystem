@@ -50,7 +50,7 @@
         </ListView>
         <Button Name="btnBrowsePaper" Content="Browse" HorizontalAlignment="Left" Margin="314,226,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBrowsePaper_Click"/>
         <Button Name="btnBroeseAbstract" Content="Browse" HorizontalAlignment="Left" Margin="314,254,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="BtnBroeseAbstract_Click"/>
-        <Button Name="btnViewPaper" Content="View paper" HorizontalAlignment="Left" Margin="494,265,0,0" VerticalAlignment="Top" Width="75" Click="BtnViewPaper_Click"/>
-        <Button Name="btnViewAbstract" Content="Wiev abstract" HorizontalAlignment="Left" Margin="582,263,0,0" VerticalAlignment="Top" Width="80" Click="BtnViewAbstract_Click"/>
+        <Button Name="btnViewPaper" Content="View paper" HorizontalAlignment="Left" Margin="494,265,0,0" VerticalAlignment="Top" Width="75" Click="BtnViewPaper_Click" Height="22"/>
+        <Button Name="btnViewAbstract" Content="View abstract" HorizontalAlignment="Left" Margin="582,265,0,0" VerticalAlignment="Top" Width="80" Click="BtnViewAbstract_Click" Height="22"/>
     </Grid>
 </Page>

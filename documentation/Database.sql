@@ -1,13 +1,45 @@
-create database SuperDuperISSDataBase
+/*
+		This query is used to create the database for our application.
+		Note that there is another query for the insertion of some basic accounts
+	to simulate the use of the app.
+	
+		No. of tabels: 14
 
+*/
+
+create database SuperDuperISSDataBase
 use SuperDuperISSDataBase
 
+/*
+		Roles
+
+	1. Author
+	2. Chair
+	3. Co-Chair
+	4. Regular
+	5. Listener
+	6. SteeringCommittee
+	
+*/
 create table Roles(
 	ID int identity(1,1),
 	RoleName varchar(30)
 	constraint PK_Roles_ID primary key(ID)
 )
 
+/*
+	Some accounts for testing the app
+
+    username	password	role
+--------------+-----------+------------
+	admin		admin		SteeringCommittee
+	alex		test		Co-Chair
+	ale			test		Chair
+	cris		test		Author
+	cata		test		Listener
+	dia			test		Regular
+---------------------------------------
+*/
 create table Users(
 	ID int identity(1,1),
 	FirstName varchar(30),
@@ -73,7 +105,6 @@ create table Reviews(
 	ReviewerID int,
 	Qualifier varchar(20),
 	Comments varchar(200),
-	ReevalRequest bit,
 	constraint FK_Reviews_Papers foreign key(PaperID) references Papers(ID),
 	constraint FK_Reviews_PCMembers foreign key(ReviewerID) references PCMembers(ID)
 )
@@ -101,17 +132,24 @@ create table AuthorPapers(
 
 
 
+
 /*
 INSERT INTO Roles VALUES ('Author'), ('Chair'), ('Co-Chair'), ('Regular'), ('Listener')
 INSERT INTO ChosenPC VALUES ('chair.com', 2), ('co-chair.com', 3),('regular.com', 4)
 insert into Conferences values ('Future', 'Avram Iancu street','12/05/2019'),('Politics','Kogalniceanu street 2/I','12/20/2019')
-insert into Sections values ('Wars',302,'11/29/2019',3,2)
+insert into Sections values ('Voting', 411, '08/01/2019',3,1),('Wars',302,'11/29/2019',3,2)
 select * from Users
 select * from PCMembers
 select * from ChosenPC
-
 */
 
-select * from Sections
+alter table Reviews
+drop column ReevalRequest
+
+select * from Authors
+select * from AuthorPapers
+select * from Papers
+
+delete from Papers where ID >1
 
 

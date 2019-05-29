@@ -63,11 +63,15 @@
     <Compile Include="ConferencesPage.xaml.cs">
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfManagementPage.xaml.cs">
+      <DependentUpon>ConfManagementPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\CMSController.cs" />
     <Compile Include="DeadlinePage.xaml.cs">
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Author.cs" />
+    <Compile Include="Domain\ChosenPcMember.cs" />
     <Compile Include="Domain\Conference.cs" />
     <Compile Include="Domain\Paper.cs" />
     <Compile Include="Domain\PCMember.cs" />
@@ -88,13 +92,29 @@
     <Compile Include="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProgCommPage.xaml.cs">
+      <DependentUpon>ProgCommPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SectionsPage.xaml.cs">
+      <DependentUpon>SectionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SuperUserWindow.xaml.cs">
+      <DependentUpon>SuperUserWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReviewPage.xaml.cs">
+      <DependentUpon>ReviewPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserMainWindow.xaml.cs">
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="ConferencesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +153,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ProgCommPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SectionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SuperUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReviewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
