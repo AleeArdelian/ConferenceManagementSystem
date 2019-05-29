@@ -118,4 +118,6 @@ select * from Authors
 select * from AuthorPapers
 select * from Papers
 
+delete from Papers where ID >1
+
 
