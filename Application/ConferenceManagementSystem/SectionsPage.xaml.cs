@@ -41,5 +41,24 @@ namespace ConferenceManagementSystem
             sectionsListView.ItemsSource = sections;
             DataContext = this;
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = nameTextBox.Text;
+            string room = roomTextBox.Text;
+            DateTime date = Convert.ToDateTime(confDate.Text);
+            int chairId = Int32.Parse(chairTextBox.Text);
+            controller.addSection(name, room, date, conf.ID, chairId);
+            sections = controller.getSections();
+            sectionsListView.ItemsSource = sections;
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Section s = (Section)sectionsListView.SelectedItems[0];
+            controller.deleteSection(s.ID);
+            sections = controller.getSections();
+            sectionsListView.ItemsSource = sections;
+        }
     }
 }
