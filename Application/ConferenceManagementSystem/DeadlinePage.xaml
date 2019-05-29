@@ -9,7 +9,7 @@
       Title="DeadlinePage">
 
     <Grid Margin="0,0,-290,0">
-        <ListView x:Name="sectionListView" HorizontalAlignment="Left" Height="120" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" ItemsSource="{Binding sections}" SelectionChanged="ListView_SelectionChanged">
+        <ListView x:Name="sectionListView" HorizontalAlignment="Left" Height="163" Margin="10,10,0,0" VerticalAlignment="Top" Width="339" ItemsSource="{Binding sections}" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding SectionName}" Header="Name" Width="100"/>
@@ -18,8 +18,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <DatePicker x:Name="dateDeadline" HorizontalAlignment="Left" Margin="349,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="submitButton" Content="Change Deadline" HorizontalAlignment="Left" Margin="349,110,0,0" VerticalAlignment="Top" Width="102" Click="submitButton_Click"/>
+        <DatePicker x:Name="dateDeadline" HorizontalAlignment="Left" Margin="410,36,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="submitButton" Content="Change Deadline" HorizontalAlignment="Left" Margin="409,127,0,0" VerticalAlignment="Top" Width="102" Click="submitButton_Click"/>
 
     </Grid>
 </Page>
