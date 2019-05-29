@@ -22,15 +22,18 @@ namespace ConferenceManagementSystem.Controller
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID, int RoleID)
         {
             List<String> pid;
+            List<String> affiliations;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
                 {
+                    string aff = "regular Member";
                     String query = "INSERT INTO Papers(ContentLoc,AbstractLoc,Topic,PaperName,SectionID,isAccepted) VALUES ('" + ContentLoc + "','" + AbstractLoc + "','" + Topic + "','" + PaperName + "'," + SectionID + ",0)";
                     db.Execute(query);
                     pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
                     int pidd = Int32.Parse(pid[0]);
 
+<<<<<<< HEAD
                     List<String> xv = db.Query<String>("SELECT Affiliation FROM Authors WHERE ID=" + AuthorID).ToList();
                     if(RoleID == 4)
                     {
@@ -38,6 +41,17 @@ namespace ConferenceManagementSystem.Controller
                         db.Execute(q);
                     }
 
+=======
+                    if (RoleID == 4)
+                    {
+                        affiliations = db.Query<String>( "SELECT Affiliation from Authors WHERE ID=" + AuthorID).ToList();
+                        if (affiliations.Count == 0)
+                        {
+                            String query4 = "INSERT INTO Authors(ID,Affiliation) VALUES (" + AuthorID + ",'" + aff + "')";
+                            db.Execute(query4);
+                        }
+                    }
+>>>>>>> origin/Ale
                     String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
                     db.Execute(query1);
                 }
@@ -170,14 +184,9 @@ namespace ConferenceManagementSystem.Controller
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 User user = null;
-                try
-                {
-                    user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + password + "'");
-                }
-                catch (SqlException)
-                {
-                    throw new Exception("User not found");
-                }
+                user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + password + "'");
+
+ 
                 if (user.RoleID == 1)
                 {
                     Author author = db.QueryFirst<Author>("SELECT U.ID, FirstName, LastName, RoleID, email, Username, Passwd, Affiliation FROM Users U INNER JOIN Authors A on U.ID=A.ID WHERE Username='" + username + "' AND Passwd='" + password + "'");
@@ -214,6 +223,7 @@ namespace ConferenceManagementSystem.Controller
         {
             List<String> res;
             List<String> res1;
+            List<String> res2;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 res = db.Query<String>("SELECT FirstName FROM Users WHERE Username='" + username + "'").ToList();
@@ -221,11 +231,11 @@ namespace ConferenceManagementSystem.Controller
                 if (res.Capacity > 0 || res1.Capacity > 0)
                     throw new Exception("Username/Email already in use");
                 else
-                {
+                { 
                     String query = "INSERT INTO Users(FirstName,LastName,Username,Passwd,email,RoleID) values('" + fname + "','" + lname + "','" + username + "','" + passwd + "','" + email + "',1)";
                     db.Execute(query);
                     User user = db.QueryFirst<User>("SELECT * FROM Users WHERE Username='" + username + "' AND Passwd='" + passwd + "'");
-                    String query1 = "INSERT INTO Authors(ID,Affiliation) values("+user.ID+",'" + affiliation + "')";
+                    String query1 = "INSERT INTO Authors(ID,Affiliation) values('" +user.ID+ "','" + affiliation + ")";
                     db.Execute(query1);
                 }
             }

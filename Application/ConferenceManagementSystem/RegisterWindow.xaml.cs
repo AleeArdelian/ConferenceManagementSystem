@@ -56,15 +56,8 @@ namespace ConferenceManagementSystem
             }
             if (loginAsComboBox.Text == "PC Member")
             {
-                try
-                {
-                    controller.registerPCMember(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text, websiteTextBox.Text);
-                    MessageBox.Show("Register succesfull!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                controller.registerPCMember(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text, websiteTextBox.Text);
+                MessageBox.Show("Register succesfull!");
             }
             this.Close();
         }
