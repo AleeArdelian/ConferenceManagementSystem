@@ -61,7 +61,14 @@ namespace ConferenceManagementSystem
 
         private void SectionsItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new SectionsPage(this, controller, user);
+            try
+            {
+                contentFrame.Content = new SectionsPage(this.selectedConference, controller, user);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
