@@ -25,13 +25,15 @@ namespace ConferenceManagementSystem
     {
         private CMSController controller;
         private User user;
-        private List<ChosenPcMember> pcs;
+        private List<ChosenPcMember> pcs { get; set; }
 
         public ProgCommPage(CMSController controller, User user)
         {
             this.user = user;
             this.controller = controller;
             InitializeComponent();
+            pcs = this.controller.getChosen();
+            DataContext = this;
         }
     }
 }

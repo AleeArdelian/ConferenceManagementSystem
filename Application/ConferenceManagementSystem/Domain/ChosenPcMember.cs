@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConferenceManagementSystem.Domain
 {
-    class ChosenPcMember
+    public class ChosenPcMember
     {
         public string email { get; set; }
         public string RoleName { get; set; }

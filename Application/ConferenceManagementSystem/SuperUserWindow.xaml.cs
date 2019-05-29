@@ -43,7 +43,7 @@ namespace ConferenceManagementSystem
 
         private void CommitteeItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ProgCommPage()
+            contentFrame.Content = new ProgCommPage(controller, user);
         }
 
         private void ConferencesItem_Selected(object sender, RoutedEventArgs e)
