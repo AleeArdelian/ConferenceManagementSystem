@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Domain;
+using ConferenceManagementSystem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +23,18 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class ConfManagementPage : Page
     {
-        public ConfManagementPage()
+        private CMSController controller;
+        private User user;
+        public List<Conference> conferences { get; set; }
+
+        public ConfManagementPage(CMSController controller, User user)
         {
+            this.user = user;
+            this.controller = controller;
             InitializeComponent();
-        }
-
-        private void ConferencesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            conferences = this.controller.getConferences();
 
         }
+
     }
 }
