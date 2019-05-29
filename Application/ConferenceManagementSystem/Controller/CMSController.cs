@@ -209,6 +209,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Conference> getMyConferences(User user)
         {
+            /*
+             * gets all the conferences which a given user participates in
+             * pre: a user (User)
+             * post: a list with all the conferences
+             */
             List<Conference> conferences;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
