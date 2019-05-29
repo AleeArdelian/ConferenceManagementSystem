@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ConferenceManagementSystem"
       mc:Ignorable="d" 
       d:DesignHeight="326.4" d:DesignWidth="632"
-      Title="Asd">
+      Title="Conference Management System">
 
     <Grid>
         
