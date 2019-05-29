@@ -306,7 +306,9 @@ namespace ConferenceManagementSystem.Controller
         public void registerPCMember(string username, string passwd, string fname, string lname, string email, string affiliation, string website)
         {
             /*
-             * 
+             * adds a new PCMember to the Users and the PCMembers tables
+             * pre: username (string), password (string), first name (string), last name (string), email (string), affiliation (string), website(string)
+             * post: throws exception if the username or email are already used, or if the user does not have the right to register as a PCMember
              */
             List<String> res;
             List<String> res1;
