@@ -9,6 +9,14 @@
       Title="Conference Management System">
 
     <Grid>
-        
+        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="213" Margin="66,42,0,0" VerticalAlignment="Top" Width="502" ItemsSource="{Binding conferences}" SelectionChanged="ConferencesListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceAddress}" Header="Address" Width="200"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ConferenceDate}" Header="Date" Width="75"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

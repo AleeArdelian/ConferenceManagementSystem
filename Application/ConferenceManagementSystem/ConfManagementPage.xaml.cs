@@ -24,5 +24,10 @@ namespace ConferenceManagementSystem
         {
             InitializeComponent();
         }
+
+        private void ConferencesListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
