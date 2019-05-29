@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConferenceManagementSystem.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,53 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class RegisterWindow : Window
     {
-        public RegisterWindow()
+        private CMSController controller = new CMSController();
+
+        public RegisterWindow(CMSController controller)
         {
+            this.controller = controller;
             InitializeComponent();
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (loginAsComboBox.Text == "Listener")
+            {
+                try
+                {
+                    controller.registerListener(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text);
+                    MessageBox.Show("Register succesfull!");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            if (loginAsComboBox.Text == "Author")
+            {
+                try
+                {
+                    controller.registerAuthor(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text);
+                    MessageBox.Show("Register succesfull!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            if (loginAsComboBox.Text == "PC Member")
+            {
+                try
+                {
+                    controller.registerPCMember(usernameTextBox.Text, passwordBox.Password.ToString(), firstNameTextBox.Text, lastNameTextBox.Text, emailTextBox.Text, affiliationTextBox.Text, websiteTextBox.Text);
+                    MessageBox.Show("Register succesfull!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            this.Close();
         }
 
         private void LoginAsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

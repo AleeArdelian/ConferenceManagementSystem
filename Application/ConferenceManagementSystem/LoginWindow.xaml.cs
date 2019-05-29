@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Entities;
 
 namespace ConferenceManagementSystem
 {
@@ -19,6 +21,8 @@ namespace ConferenceManagementSystem
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private CMSController controller = new CMSController();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -26,7 +30,7 @@ namespace ConferenceManagementSystem
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow regWin = new RegisterWindow();
+            RegisterWindow regWin = new RegisterWindow(controller);
             regWin.Show();
         }
 
@@ -34,9 +38,20 @@ namespace ConferenceManagementSystem
         {
             //if (usernameTextBox.Text == "")
             //    MessageBox.Show("Invalid username or password!", "Login");
-            UserMainWindow userMainwWin = new UserMainWindow();
-            userMainwWin.Show();
-            this.Close();
+            String username = usernameTextBox.Text;
+            String passwd = passwordBox.Password.ToString();
+            try
+            {
+                User user = controller.LogIN(username, passwd);
+                UserMainWindow userMainwWin = new UserMainWindow(controller, user);
+                this.Hide();
+                userMainwWin.ShowDialog();
+                this.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
