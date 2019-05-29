@@ -99,6 +99,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void attendConference(Conference conference, User user)
         {
+            /*
+             * adds a participant to a given conference
+             * pre: conference and user
+             * post: adds the user id and the conference id in the ConferenceUser table, or throws an exception if the user is already marked as attending the given conference
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
@@ -117,6 +122,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Paper> getPapers()
         {
+            /*
+             * gets all the papers from the DB
+             * pre: -
+             * post: returns a list with all the papers
+             */
             List<Paper> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
@@ -128,6 +138,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Paper> getPapersOfSection(Section section)
         {
+            /*
+             * gets all the papers from a given section from the DB
+             * pre: a section (Section)
+             * post: returns a list with all the papers from the given section
+             */
             List<Paper> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
