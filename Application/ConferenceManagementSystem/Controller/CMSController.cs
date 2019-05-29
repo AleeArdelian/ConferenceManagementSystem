@@ -78,6 +78,11 @@ namespace ConferenceManagementSystem.Controller
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
         {
+            /*
+             * adds a new conference in the Conferences table
+             * pre: conference name (string), conference address (string), conference date (DateTime)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 try
