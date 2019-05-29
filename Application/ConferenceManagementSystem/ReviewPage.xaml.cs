@@ -41,5 +41,34 @@ namespace ConferenceManagementSystem
             papers = controller.getPapers();
             papersListView.ItemsSource = papers;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.ContentLoc);
+                viewer.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.AbstractLoc);
+                viewer.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
+            }
+        }
     }
 }
