@@ -71,5 +71,37 @@ namespace ConferenceManagementSystem
                 MessageBox.Show("Please select a paper!");
             }
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (user.RoleID == 4)
+            {
+                if (papersListView.SelectedItems.Count > 1 || papersListView.SelectedItems.Count == 0)
+                {
+                    MessageBox.Show("You must select only one session");
+                    return;
+                }
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+
+                if (qualifComboBox.SelectedValue == null)
+                {
+                    MessageBox.Show("You must select a qualifier");
+                    return;
+                }
+                else
+                {
+                    string qual = qualifComboBox.SelectedValue.ToString();
+                }
+
+                if (string.IsNullOrWhiteSpace(commentBox.Text))
+                {
+                    MessageBox.Show("Please write specifications");
+                    return;
+                }
+
+
+
+            }
+        }
     }
 }
