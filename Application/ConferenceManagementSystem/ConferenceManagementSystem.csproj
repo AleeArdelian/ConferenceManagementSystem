@@ -63,6 +63,9 @@
     <Compile Include="ConferencesPage.xaml.cs">
       <DependentUpon>ConferencesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfManagementPage.xaml.cs">
+      <DependentUpon>ConfManagementPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\CMSController.cs" />
     <Compile Include="DeadlinePage.xaml.cs">
       <DependentUpon>DeadlinePage.xaml</DependentUpon>
@@ -95,6 +98,10 @@
       <DependentUpon>UserMainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="ConferencesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
