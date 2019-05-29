@@ -153,6 +153,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Conference> getConferences()
         {
+            /*
+             * get all the conferences from the DB
+             * pre: -
+             * post: returns a list with all the conferences
+             */
             List<Conference> conferences;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
