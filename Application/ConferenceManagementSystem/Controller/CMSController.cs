@@ -99,6 +99,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<ChosenPcMember> getChosen()
         {
+            /*
+             * gets all the chosen PC Members from the ChosenPCMembers table
+             * pre: -
+             * post: a list with all the chosen PC Members
+             */
             List<ChosenPcMember> pcs;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
