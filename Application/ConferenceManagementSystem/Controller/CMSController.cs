@@ -312,6 +312,11 @@ namespace ConferenceManagementSystem.Controller
 
         public List<Section> getSections(int confId)
         {
+            /*
+             * gets all the sections with the given conference id from the Sections table
+             * pre: conference id (integer)
+             * post: a list with all the sections from the conference
+             */
             List<Section> section;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
