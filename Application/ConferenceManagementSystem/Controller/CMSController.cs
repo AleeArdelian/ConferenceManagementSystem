@@ -104,7 +104,7 @@ namespace ConferenceManagementSystem.Controller
                     db.Execute(query);
                     pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
                     int pidd = Int32.Parse(pid[0]);
-
+                    
                     if (RoleID == 4)
                     {
                         affiliations = db.Query<String>( "SELECT Affiliation from Authors WHERE ID=" + AuthorID).ToList();
