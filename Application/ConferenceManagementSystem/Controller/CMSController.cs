@@ -52,6 +52,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void addReview(int paperId, int reviewerId, string qualifier, string comments)
         {
+            /*
+             * adds a new review in the Reviews table
+             * pre: the paper id (integer), the reviewer id (integer), the qualifier (string), the comments (string)
+             * post: throws an exception if the given paper already has the maximum number of reviews (4)
+             */
             List<String> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
