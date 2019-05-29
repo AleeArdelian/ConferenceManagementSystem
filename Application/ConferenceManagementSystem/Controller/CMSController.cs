@@ -38,7 +38,11 @@ namespace ConferenceManagementSystem.Controller
 
         public void deleteSection(int id)
         {
-            
+            /*
+             * deletes the section with a given id from the Sections table
+             * pre: section id (integer)
+             * post: -
+             */
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 String query = "DELETE FROM Sections WHERE ID = " + id.ToString();
