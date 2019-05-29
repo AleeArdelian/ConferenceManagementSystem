@@ -9,7 +9,7 @@
       Title="Conference Management System">
 
     <Grid>
-        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="213" Margin="10,41,0,0" VerticalAlignment="Top" Width="502" ItemsSource="{Binding conferences}" SelectionChanged="ConferencesListView_SelectionChanged">
+        <ListView Name="conferencesListView" HorizontalAlignment="Left" Height="122" Margin="10,41,0,0" VerticalAlignment="Top" Width="502" ItemsSource="{Binding conferences}" SelectionChanged="ConferencesListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding ConferenceName}" Header="Name" Width="200"/>
@@ -19,5 +19,7 @@
             </ListView.View>
         </ListView>
         <Label Content="Conferences:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="128"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,168,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" HorizontalAlignment="Left" Margin="90,168,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Page>
