@@ -20,22 +20,14 @@ namespace ConferenceManagementSystem.Controller
             List<String> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
-                try
+
+                papers = db.Query<String>("SELECT Qualifier from Reviews WHERE PaperID=" + paperId).ToList();
+                if( papers.Count > 4)
                 {
-                    papers = db.Query<String>("SELECT Qualifier from Reviews WHERE ID=" + paperId).ToList();
-                    if( papers.Count > 4)
-                    {
-                        throw new Exception("There are already 4 reviewers on this paper!");
-                    }
-
-                    String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
+                    throw new Exception("There are already 4 reviewers on this paper!");
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-
-
+                String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
+                db.Execute(query);
             }
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)

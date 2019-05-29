@@ -68,7 +68,14 @@ namespace ConferenceManagementSystem
 
         private void ReviewsItem_Selected(object sender, RoutedEventArgs e)
         {
-            contentFrame.Content = new ReviewPage(controller, user);
+            if (user.RoleID == 4)
+            {
+                contentFrame.Content = new ReviewPage(controller, user);
+            }
+            else
+            {
+
+            }
         }
 
         private void DeadlineItem_Selected(object sender, RoutedEventArgs e)

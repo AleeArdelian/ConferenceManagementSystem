@@ -82,7 +82,8 @@ namespace ConferenceManagementSystem
                     return;
                 }
                 Paper paper = (Paper)papersListView.SelectedItems[0];
-
+                string qual;
+                string comments;
                 if (qualifComboBox.SelectedValue == null)
                 {
                     MessageBox.Show("You must select a qualifier");
@@ -90,7 +91,7 @@ namespace ConferenceManagementSystem
                 }
                 else
                 {
-                    string qual = qualifComboBox.SelectedValue.ToString();
+                    qual = qualifComboBox.Text;
                 }
 
                 if (string.IsNullOrWhiteSpace(commentBox.Text))
@@ -98,9 +99,19 @@ namespace ConferenceManagementSystem
                     MessageBox.Show("Please write specifications");
                     return;
                 }
+                else
+                {
+                    comments = commentBox.Text;
+                }
 
+                controller.addReview(paper.ID, user.ID, qual, comments);
+                MessageBox.Show("Success!");
 
-
+            }
+            else
+            {
+                MessageBox.Show("You don`t have the right to review papers!");
+                return;
             }
         }
     }
