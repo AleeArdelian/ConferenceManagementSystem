@@ -85,6 +85,9 @@
     <Compile Include="PapersPage.xaml.cs">
       <DependentUpon>PapersPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PDFViewer.xaml.cs">
+      <DependentUpon>PDFViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PapersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PDFViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

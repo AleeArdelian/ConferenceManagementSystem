@@ -1,6 +1,7 @@
 ﻿using ConferenceManagementSystem.Controller;
 using ConferenceManagementSystem.Domain;
 using ConferenceManagementSystem.Entities;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,8 @@ namespace ConferenceManagementSystem
             {
                 papersLabel.Visibility = Visibility.Hidden;
                 papersListView.Visibility = Visibility.Hidden;
+                btnViewAbstract.Visibility = Visibility.Hidden;
+                btnViewPaper.Visibility = Visibility.Hidden;
             }
             else
             {
@@ -93,9 +96,72 @@ namespace ConferenceManagementSystem
 
         private void SectionsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Section section = (Section)sectionsListView.SelectedItems[0];
-            papers = controller.getPapersOfSection(section);
-            papersListView.ItemsSource = papers;
+            if (sectionsListView.SelectedItems.Count > 0)
+            {
+                Section section = (Section)sectionsListView.SelectedItems[0];
+                papers = controller.getPapersOfSection(section);
+                papersListView.ItemsSource = papers;
+            }
+        }
+
+        private void BtnBroeseAbstract_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "PDF Files|*.pdf";
+            fileDialog.DefaultExt = ".pdf";
+            Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
+            if (dialogOK == true)
+            {
+                string fileName = fileDialog.FileName;
+                abstractLocationTextBox.Text = fileName;
+
+            }
+        }
+
+        private void BtnBrowsePaper_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Multiselect = false;
+            fileDialog.Filter = "PDF Files|*.pdf";
+            fileDialog.DefaultExt = ".pdf";
+            Nullable<bool> dialogOK = fileDialog.ShowDialog();
+
+            if (dialogOK == true)
+            {
+                string fileName = fileDialog.FileName;
+                paperLocationTextBox.Text = fileName;
+
+            }
+        }
+
+        private void BtnViewPaper_Click(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.ContentLoc);
+                viewer.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
+            }
+        }
+
+        private void BtnViewAbstract_Click(object sender, RoutedEventArgs e)
+        {
+            if (papersListView.SelectedItems.Count > 0)
+            {
+                Paper paper = (Paper)papersListView.SelectedItems[0];
+                PDFViewer viewer = new PDFViewer(paper.AbstractLoc);
+                viewer.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a paper!");
+            }
         }
     }
 }
