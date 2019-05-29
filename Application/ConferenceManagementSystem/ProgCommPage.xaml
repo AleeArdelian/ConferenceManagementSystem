@@ -9,7 +9,7 @@
       Title="ProgCommPage">
 
     <Grid>
-        <ListView Name="pcListView" HorizontalAlignment="Left" Height="122" Margin="10,41,0,0" VerticalAlignment="Top" Width="502" ItemsSource="{Binding pcs}">
+        <ListView Name="pcListView" HorizontalAlignment="Left" Height="122" Margin="10,10,0,0" VerticalAlignment="Top" Width="502" ItemsSource="{Binding pcs}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding email}" Header="Email" Width="200"/>
@@ -17,5 +17,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="23" Margin="50,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="roleComboBox" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="160" SelectedIndex="0" Height="25" SelectionChanged="RoleComboBox_SelectionChanged">
+            <ComboBoxItem Content="Chair" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="Co-Chair" HorizontalAlignment="Left" Width="118.4"/>
+            <ComboBoxItem Content="Regular" HorizontalAlignment="Left" Width="118.4"/>
+        </ComboBox>
     </Grid>
 </Page>

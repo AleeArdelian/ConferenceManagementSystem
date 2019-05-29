@@ -35,5 +35,10 @@ namespace ConferenceManagementSystem
             pcs = this.controller.getChosen();
             DataContext = this;
         }
+
+        private void RoleComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
