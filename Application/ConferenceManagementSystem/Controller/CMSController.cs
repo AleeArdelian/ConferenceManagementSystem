@@ -14,9 +14,24 @@ namespace ConferenceManagementSystem.Controller
 {
     public class CMSController
     {
-        public void AddConference(string ConferenceName, string ConferenceAddress, string ConferenceDate)
+        public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                try
+                {
+                    String query = "INSERT INTO Papers(ContentLoc,AbstractLoc,Topic,PaperName,SectionID,isAccepted) VALUES ('" + ContentLoc + "','" + AbstractLoc + "','" + Topic + "','" + PaperName + "'," + SectionID + ",0)";
+                    db.Execute(query);
+                    pid = db.Query<String>("SELECT ID FROM Papers WHERE ContentLoc='" + ContentLoc + "'").ToList();
+                    int pidd = Int32.Parse(pid[0]);
+                    String query1 = "INSERT INTO AuthorPapers(AuthorID,PaperID) VALUES (" + AuthorID + "," + pidd + ")";
+                    db.Execute(query1);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
         }
 
         public void addPaper(string PaperName, string Topic, string ContentLoc, string AbstractLoc, int SectionID, int AuthorID)
