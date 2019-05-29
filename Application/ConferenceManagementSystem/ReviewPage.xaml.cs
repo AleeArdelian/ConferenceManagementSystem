@@ -1,4 +1,5 @@
 ﻿using ConferenceManagementSystem.Controller;
+using ConferenceManagementSystem.Domain;
 using ConferenceManagementSystem.Entities;
 using System;
 using System.Collections.Generic;
@@ -25,12 +26,20 @@ namespace ConferenceManagementSystem
 
         CMSController controller;
         User user;
+        public List<Paper> papers { get; set; }
 
         public ReviewPage(CMSController con, User u)
         {
             this.controller = con;
             this.user = u;
             InitializeComponent();
+            loadPapers();
+        }
+
+        private void loadPapers()
+        {
+            papers = controller.getPapers();
+            papersListView.ItemsSource = papers;
         }
     }
 }

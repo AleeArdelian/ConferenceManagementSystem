@@ -9,6 +9,13 @@
       Title="ReviewPage">
 
     <Grid>
-        
+        <ListView HorizontalAlignment="Left" Height="173" Margin="63,58,0,0" VerticalAlignment="Top" Width="151">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Page>
