@@ -9,7 +9,7 @@
       Title="ReviewPage" Width="632" Height="326">
 
     <Grid RenderTransformOrigin="0.496,0.526" Margin="10,0,0,0">
-        <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,25,0,0" VerticalAlignment="Top" Width="166">
+        <ListView x:Name="papersListView" HorizontalAlignment="Left" Height="173" Margin="33,25,0,0" VerticalAlignment="Top" Width="166" SelectionChanged="PapersListView_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding PaperName}" Header="Name" Width="80"/>
@@ -32,6 +32,13 @@
         <Button Content="Sumbit" HorizontalAlignment="Left" Margin="263,256,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" RenderTransformOrigin="0.551,1.375"/>
         <TextBox x:Name="commentBox" HorizontalAlignment="Left" Height="141" Margin="355,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="232"/>
         <Label Content="Specifications:" HorizontalAlignment="Left" Margin="355,22,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="reviewsListView" HorizontalAlignment="Left" Height="100" Margin="33,203,0,0" VerticalAlignment="Top" Width="100">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Qualifier}" Header="Qualifier" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

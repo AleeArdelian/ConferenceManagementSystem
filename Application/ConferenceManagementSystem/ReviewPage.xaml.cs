@@ -26,6 +26,7 @@ namespace ConferenceManagementSystem
 
         CMSController controller;
         User user;
+        public List<Review> reviews { get; set; }
         public List<Paper> papers { get; set; }
 
         public ReviewPage(CMSController con, User u)
@@ -41,6 +42,8 @@ namespace ConferenceManagementSystem
         {
             papers = controller.getPapers();
             papersListView.ItemsSource = papers;
+            //reviews = controller.getReeval();
+            //reviewsListView.ItemsSource = reviews;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -113,6 +116,13 @@ namespace ConferenceManagementSystem
                 MessageBox.Show("You don`t have the right to review papers!");
                 return;
             }
+        }
+
+        private void PapersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Paper paper = (Paper)papersListView.SelectedItems[0];
+            reviews = controller.getReeval(paper);
+            reviewsListView.ItemsSource = reviews;
         }
     }
 }

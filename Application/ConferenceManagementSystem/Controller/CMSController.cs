@@ -462,6 +462,18 @@ namespace ConferenceManagementSystem.Controller
             }
         }
 
+        public List<Review> getReeval(Paper paper)
+        {
+            List<Review> papers;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                papers = db.Query<Review>("SELECT * FROM Reviews WHERE ReevalRequest=1 AND PaperID="+paper.ID).ToList();
+                return papers;
+            }
+
+
+        }
+
         public List<Paper> getAcceptedPapers()
         {
             List<Paper> papers;
