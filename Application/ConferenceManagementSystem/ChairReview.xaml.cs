@@ -54,6 +54,26 @@ namespace ConferenceManagementSystem
         {
             Paper paper = (Paper)this.papersListView.SelectedItems[0];
             controller.reevalPaper(paper);
+            MessageBox.Show("Reevaluation requested!");
+        }
+
+        private void BtnAccept_Click(object sender, RoutedEventArgs e)
+        {
+            Paper paper = (Paper)this.papersListView.SelectedItems[0];
+            controller.acceptPaper(paper);
+            MessageBox.Show("Paper accepted!");
+        }
+
+        private void BtnShowAccepted_Click(object sender, RoutedEventArgs e)
+        {
+            papers = controller.getAcceptedPapers();
+            papersListView.ItemsSource = papers;
+        }
+
+        private void BtnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+            papers = controller.getPapers();
+            papersListView.ItemsSource = papers;
         }
     }
 }

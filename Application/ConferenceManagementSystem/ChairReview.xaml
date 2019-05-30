@@ -20,7 +20,6 @@
         <ListView x:Name="reviewListView" HorizontalAlignment="Left" Height="173" Margin="219,25,0,0" VerticalAlignment="Top" Width="309">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding ReviewerID}" Header="Reviewer" Width="80"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Qualifier}" Header="Qualifier" Width="75"/>
                     <GridViewColumn DisplayMemberBinding="{Binding Comments}" Header="Comments" Width="75"/>
                     <GridViewColumn DisplayMemberBinding="{Binding ReevalRequest}" Header="Reevaluation" Width="75"/>
@@ -28,6 +27,9 @@
             </ListView.View>
         </ListView>
         <Button x:Name="reevalButton" Content="Request Re-evaluation" HorizontalAlignment="Left" Margin="33,203,0,0" VerticalAlignment="Top" Width="131" Click="ReevalButton_Click"/>
+        <Button Name="btnAccept" Content="Accept" HorizontalAlignment="Left" Margin="33,227,0,0" VerticalAlignment="Top" Width="85" Click="BtnAccept_Click"/>
+        <Button Name="btnShowAccepted" Content="Show Accepted" HorizontalAlignment="Left" Margin="33,251,0,0" VerticalAlignment="Top" Width="85" Click="BtnShowAccepted_Click"/>
+        <Button Name="btnShowAll" Content="ShowAll" HorizontalAlignment="Left" Margin="33,275,0,0" VerticalAlignment="Top" Width="85" Click="BtnShowAll_Click"/>
 
     </Grid>
 </Page>
