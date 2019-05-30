@@ -13,6 +13,6 @@ namespace ConferenceManagementSystem.Domain
         public string Qualifier { get; set; }
         public string Comments { get; set; }
 
-        public int ReevalRequest { get; set }
+        public int ReevalRequest { get; set; }
     }
 }
