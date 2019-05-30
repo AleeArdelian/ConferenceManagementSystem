@@ -50,6 +50,11 @@ namespace ConferenceManagementSystem
             }
             else
             {
+                if (user.RoleID != 4)
+                {
+                    btnViewPaper.Visibility = Visibility.Hidden;
+                    btnViewAbstract.Visibility = Visibility.Hidden;
+                }
                 loadPapers();
             }
         }
