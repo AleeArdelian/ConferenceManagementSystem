@@ -26,7 +26,7 @@ namespace ConferenceManagementSystem.Controller
             {
                 try
                 {
-                    String query = "INSERT INTO Sections VALUES ('" + name + "','" + room + "'," + date.Date + "," + confId + "," + chairId + ")";
+                    String query = "INSERT INTO Sections VALUES ('" + name + "', '" + room + "', '" + date + "', " +chairId + ", " + confId + ")";
                     db.Execute(query);
                 }
                 catch (Exception ex)
@@ -60,20 +60,15 @@ namespace ConferenceManagementSystem.Controller
             List<String> papers;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
-                try
-                {
-                    papers = db.Query<String>("SELECT Qualifier from Reviews WHERE ID=" + paperId).ToList();
-                    if( papers.Count > 4)
-                    {
-                        throw new Exception("There are already 4 reviewers on this paper!");
-                    }
 
-                    String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
-                }
-                catch (Exception ex)
+                papers = db.Query<String>("SELECT Qualifier from Reviews WHERE PaperID=" + paperId).ToList();
+                if( papers.Count > 4)
                 {
-                    throw ex;
+                    throw new Exception("There are already 4 reviewers on this paper!");
                 }
+                String query = "INSERT INTO Reviews(PaperID,ReviewerID,Qualifier,Comments) VALUES (" + paperId + "," + reviewerId + ",'" + qualifier + "','" + comments + "')";
+                db.Execute(query);
+
             }
         }
         public void AddConference(string ConferenceName, string ConferenceAddress, DateTime ConferenceDate)
@@ -440,7 +435,6 @@ namespace ConferenceManagementSystem.Controller
              */
             List<String> res;
             List<String> res1;
-            List<String> res2;
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
                 res = db.Query<String>("SELECT FirstName FROM Users WHERE Username='" + username + "'").ToList();
@@ -455,6 +449,46 @@ namespace ConferenceManagementSystem.Controller
                     String query1 = "INSERT INTO Authors(ID,Affiliation) values('" +user.ID+ "','" + affiliation + ")";
                     db.Execute(query1);
                 }
+            }
+        }
+
+        public List<Review> GetReviewsForPaper(Paper paper)
+        {
+            List<Review> reviews;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                reviews = db.Query<Review>("SELECT * FROM Reviews WHERE PaperId = " + paper.ID).ToList();
+                return reviews;
+            }
+        }
+
+        public List<Paper> getAcceptedPapers()
+        {
+            List<Paper> papers;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                papers = db.Query<Paper>("SELECT * FROM Papers WHERE isAccepted=1").ToList();
+                return papers;
+            }
+
+
+        }
+
+        public void acceptPaper(Paper paper)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                db.Execute("UPDATE Papers SET isAccepted=" + 1 + " WHERE ID=" + paper.ID);
+            }
+
+
+        }
+
+        public void reevalPaper(Paper paper)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                db.Execute("UPDATE Reviews SET ReevalRequest = 1 WHERE PaperID=" + paper.ID);
             }
         }
 
