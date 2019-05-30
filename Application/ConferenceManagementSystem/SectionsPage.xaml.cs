@@ -38,8 +38,8 @@ namespace ConferenceManagementSystem
                 throw new Exception("No conference selected!");
             } 
             sections = this.controller.getSections(conf.ID);
-            sectionsListView.ItemsSource = sections;
             DataContext = this;
+            sectionsListView.ItemsSource = sections;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -49,7 +49,7 @@ namespace ConferenceManagementSystem
             DateTime date = Convert.ToDateTime(confDate.Text);
             int chairId = Int32.Parse(chairTextBox.Text);
             controller.addSection(name, room, date, conf.ID, chairId);
-            sections = controller.getSections();
+            sections = controller.getSections(conf.ID);
             sectionsListView.ItemsSource = sections;
         }
 
@@ -57,7 +57,7 @@ namespace ConferenceManagementSystem
         {
             Section s = (Section)sectionsListView.SelectedItems[0];
             controller.deleteSection(s.ID);
-            sections = controller.getSections();
+            sections = controller.getSections(conf.ID);
             sectionsListView.ItemsSource = sections;
         }
     }
