@@ -462,11 +462,33 @@ namespace ConferenceManagementSystem.Controller
             }
         }
 
+        public List<Paper> getAcceptedPapers()
+        {
+            List<Paper> papers;
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                papers = db.Query<Paper>("SELECT * FROM Papers WHERE isAccepted=1").ToList();
+                return papers;
+            }
+
+
+        }
+
+        public void acceptPaper(Paper paper)
+        {
+            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
+            {
+                db.Execute("UPDATE Papers SET isAccepted=" + 1 + " WHERE ID=" + paper.ID);
+            }
+
+
+        }
+
         public void reevalPaper(Paper paper)
         {
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["cmsDatabase"].ConnectionString))
             {
-                db.Execute("UPDATE Reviews SET ReevalRequest = 1 WHERE ID=" + paper.ID);
+                db.Execute("UPDATE Reviews SET ReevalRequest = 1 WHERE PaperID=" + paper.ID);
             }
         }
 
