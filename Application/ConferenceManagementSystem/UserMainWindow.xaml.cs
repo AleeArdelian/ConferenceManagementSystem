@@ -26,10 +26,20 @@ namespace ConferenceManagementSystem
 
         public UserMainWindow(CMSController controller, User user)
         {
+            string r="";
             this.user = user;
             this.controller = controller;
             InitializeComponent();
-            fullNameLabel.Content = user.LastName.ToUpper() + " " + user.FirstName.ToUpper() + ", " + user.RoleID.ToString();
+            switch (user.RoleID)
+            {
+                case 1: { r = "Author"; break; }
+                case 2: { r = "Chair"; break; }
+                case 3: { r = "Co-Chair"; break; }
+                case 4: { r = "Regular"; break; }
+                case 5: { r = "Listener"; break; }
+
+            }
+            fullNameLabel.Content = user.LastName.ToUpper() + " " + user.FirstName.ToUpper() + ", " + r;
 
             if (user.RoleID == 5){
                 this.papersItem.Visibility = Visibility.Collapsed;
